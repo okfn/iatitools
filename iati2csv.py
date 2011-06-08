@@ -8,17 +8,27 @@ def nodecpy(out, node, name, attrs={}, convert=unicode):
     if node.text:
         out[name] = convert(node.text)
     for k, v in attrs.items():
-        out[name + '_' + v] = node.get(k)
+        out[name + '@' + v] = node.get(k)
 
 def parse_tx(tx, out):
     value = tx.find('value')
     if value is not None:
         out['date'] = value.get('value-date')
         out['value'] = float(value.text)
+    if tx.findtext('description'):
+        out['tx_description'] = tx.findtext('description')
     nodecpy(out, tx.find('activity-type'),
             'transaction_type', {'code': 'code'})
     nodecpy(out, tx.find('transaction-type'),
             'transaction_type', {'code': 'code'})
+    nodecpy(out, tx.find('flow-type'),
+            'flow_type', {'code': 'code'})
+    nodecpy(out, tx.find('finance-type'),
+            'finance_type', {'code': 'code'})
+    nodecpy(out, tx.find('tied-status'),
+            'tied_status', {'code': 'code'})
+    nodecpy(out, tx.find('aid-type'),
+            'aid_type', {})
     get_date(out, tx, 'transaction-date', 'date')
     if tx.findtext('transaction-date'):
         out['date_comment'] = tx.findtext('transaction-date')
@@ -87,10 +97,19 @@ def parse_activity(activity, out):
             'contact_email', {})
     
     # SLIGHTLY HACKY:
+    snd_level = 0
     for policy_marker in activity.findall('policy-marker'):
-        nodecpy(out, policy_marker,
+        try:
+            sign = int(policy_marker.get('significance'))
+            if sign == 0:
+                continue
+            if sign == 2:
+                snd_level += 1
+            nodecpy(out, policy_marker,
                 'policy_marker_' + policy_marker.get('code'), 
                 {'vocabulary': 'vocabulary', 'significance': 'significance'})
+        except ValueError:
+            pass
 
     transactions = []
     for tx in activity.findall("transaction"):
@@ -115,10 +134,13 @@ def load_registry(url='http://iatiregistry.org/api'):
         pkg = registry.package_entity_get(pkg_name)
         for resource in pkg.get('resources', []):
             print resource.get('url')
-            transactions.extend(
-                load_file(resource.get('url'),
-                {'registry_package': pkg_name})
-                )
+            try:
+                transactions.extend(
+                    load_file(resource.get('url'),
+                    {'registry_package': pkg_name})
+                    )
+            except Exception, e:
+                print "Failed:", e
     return transactions
 
 def write_csv(transactions, filename='iati.csv'):
