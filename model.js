@@ -4,22 +4,22 @@
     "name": "iati",
     "label": "IATI Registry Transactions", 
     "description": "Transactional records from IATI activity files currently listed on IATI Registry.",
-    "currency": "USD",
-    "temporal_granularity": "year"
+    "currency": "EUR",
+    "temporal_granularity": "day"
   },
   "mapping": {
     "amount": {
       "type": "value",
       "label": "Amount",
       "description": "",
-      "column": "value",
+      "column": "amount",
       "datatype": "float"
     },
     "time": {
       "type": "value",
       "label": "Year",
       "description": "",
-      "column": "date",
+      "column": "date_start_actual",
       "datatype": "date"
     },
     "from": {
@@ -28,9 +28,9 @@
       "facet": true,
       "description": "",
       "fields": [
-        {"column": "funding_org", "name": "label", "datatype": "string"},
-        {"column": "funding_org@type", "name": "type", "datatype": "string"},
-        {"column": "funding_org@ref", "name": "ref", "datatype": "string"},
+        {"column": "activity_extending_org", "name": "label", "datatype": "string"},
+        {"column": "activity_extending_org_type", "name": "type", "datatype": "string"},
+        {"column": "activity_extending_org_ref", "name": "ref", "datatype": "string"},
         {"constant": "org", "name": "iati_role", "datatype": "constant"},
         {"constant": "yes", "name": "iati_funding", "datatype": "constant"}
       ]
@@ -41,9 +41,9 @@
       "facet": true,
       "description": "",
       "fields": [
-        {"column": "implementing@org", "name": "label", "datatype": "string"},
-        {"column": "implementing@org_ref", "name": "ref", "datatype": "string"},
-        {"column": "implementing@org_type", "name": "type", "datatype": "string"},
+        {"column": "activity_implementing_org", "name": "label", "datatype": "string"},
+        {"column": "activity_implementing_org_ref", "name": "ref", "datatype": "string"},
+        {"column": "activity_implementing_org_type", "name": "type", "datatype": "string"},
         {"constant": "org", "name": "iati_role", "datatype": "constant"},
         {"constant": "yes", "name": "iati_implementing", "datatype": "constant"}
       ]
@@ -55,7 +55,7 @@
       "description": "",
       "facet": true,
       "fields": [
-        {"column": "recipient_region", "name": "label", "datatype": "string"}
+        {"column": "activity_recipient_region", "name": "label", "datatype": "string"}
       ]
     },
     "recipient_country": {
@@ -65,7 +65,7 @@
       "description": "",
       "facet": true,
       "fields": [
-        {"column": "recipient_country", "name": "label", "datatype": "string"}
+        {"column": "activity_recipient_country", "name": "label", "datatype": "string"}
       ]
     },
     "aid_type": {
@@ -105,7 +105,7 @@
       "description": "",
       "fields": [
         {"column": "flow_type", "name": "label", "datatype": "string"},
-        {"column": "flow_type@code", "name": "code", "datatype": "string"},
+        {"column": "flow_type_code", "name": "code", "datatype": "string"},
         {"constant": "flow-type", "name": "iati_function", "datatype": "constant"}
       ]
     },
@@ -113,7 +113,7 @@
       "type": "value",
       "label": "IATI Identifier",
       "description": "",
-      "column": "identifier",
+      "column": "iati_identifier",
       "datatype": "string"
     },
     "title": {
@@ -121,13 +121,6 @@
       "label": "Title",
       "description": "",
       "column": "title",
-      "datatype": "string"
-    },
-    "comment": {
-      "type": "value",
-      "label": "Comment",
-      "description": "",
-      "column": "date_comment",
       "datatype": "string"
     },
     "status": {
@@ -166,14 +159,14 @@
       "label": "Recipient Region",
       "name": "region",
       "dimension": "dataset",
-      "breakdown": "recipient_region",
+      "breakdown": "activity_recipient_region",
       "filters": {"name": "iati"}
     },
     {
       "entity": "classifier",
       "label": "Aid Type",
       "name": "default",
-      "dimension": "recipient_region",
+      "dimension": "activity_recipient_region",
       "breakdown": "aid_type",
       "filters": {"taxonomy": "iati-region"}
     },
@@ -182,14 +175,14 @@
       "label": "Recipient Region",
       "name": "default",
       "dimension": "aid_type",
-      "breakdown": "recipient_region",
+      "breakdown": "activity_recipient_region",
       "filters": {"taxonomy": "iati-aid-type"}
     },
     {
       "entity": "classifier",
       "label": "Implementing Organization",
       "name": "implementing",
-      "dimension": "recipient_region",
+      "dimension": "activity_recipient_region",
       "breakdown": "to",
       "filters": {"iati_role": "org"}
     },
@@ -214,7 +207,7 @@
       "label": "Transaction Type",
       "name": "txtype",
       "dimension": "to",
-      "breakdown": "transaction_type",
+      "breakdown": "transaction_type_code",
       "filters": {"iati_implementing": "yes"}
     },
     {
