@@ -207,7 +207,7 @@
       "label": "Transaction Type",
       "name": "txtype",
       "dimension": "to",
-      "breakdown": "transaction_type_code",
+      "breakdown": "transaction_type",
       "filters": {"iati_implementing": "yes"}
     },
     {
