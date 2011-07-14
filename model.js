@@ -5,7 +5,7 @@
     "label": "IATI Registry Transactions", 
     "description": "Transactional records from IATI activity files currently listed on IATI Registry.",
     "currency": "EUR",
-    "temporal_granularity": "day"
+    "temporal_granularity": "year"
   },
   "mapping": {
     "amount": {
