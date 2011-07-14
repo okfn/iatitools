@@ -159,14 +159,14 @@
       "label": "Recipient Region",
       "name": "region",
       "dimension": "dataset",
-      "breakdown": "activity_recipient_region",
+      "breakdown": "recipient_region",
       "filters": {"name": "iati"}
     },
     {
       "entity": "classifier",
       "label": "Aid Type",
       "name": "default",
-      "dimension": "activity_recipient_region",
+      "dimension": "recipient_region",
       "breakdown": "aid_type",
       "filters": {"taxonomy": "iati-region"}
     },
@@ -175,14 +175,14 @@
       "label": "Recipient Region",
       "name": "default",
       "dimension": "aid_type",
-      "breakdown": "activity_recipient_region",
+      "breakdown": "recipient_region",
       "filters": {"taxonomy": "iati-aid-type"}
     },
     {
       "entity": "classifier",
       "label": "Implementing Organization",
       "name": "implementing",
-      "dimension": "activity_recipient_region",
+      "dimension": "recipient_region",
       "breakdown": "to",
       "filters": {"iati_role": "org"}
     },
