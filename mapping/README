@@ -1,0 +1,15 @@
+
+IATI Mapping
+============
+
+There are three files in this folder:
+* ISO-DAC-Countries-Regions.csv - which contains mapping between countries and regions, including DAC country and region codes, ISO2 and ISO3 country codes.
+
+Spine Mapping
+-------------
+
+The "Spine" is intended to be a best-fit mapping between different sectoral classifications and to country budgets. This is still very much a work in progress and complete, and there are a lot of sectoral classifications that are not covered under the Spine. There are two files here:
+* spine-dac-crs.csv maps DAC CRS Sector codes to the Spine
+* spine-wbsectors.csv maps WB Sector codes to the Spine
+
+Please use both of these files with caution. They are not intended to be authoritative!
