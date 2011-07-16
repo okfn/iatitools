@@ -1,0 +1,169 @@
+country_name,dac_country_code,iso2,iso3,dac_region_code,dac_region_name,type
+Afghanistan,625,AF,AFG,689,"South & Central Asia, regional",Country
+Albania,71,AL,ALB,89,"Europe, regional",Country
+Algeria,130,DZ,DZA,189,"North of Sahara, regional",Country
+"America, regional/multi-country",498,,QNA,498,"America, regional",Region
+Angola,225,AO,AGO,289,"South of Sahara, regional",Country
+Anguilla,376,AI,AIA,389,"North & Central America, regional",Country
+Antigua & Barbuda,377,AG,ATG,389,"North & Central America, regional",Country
+Argentina,425,AR,ARG,489,"South America, regional",Country
+Armenia,610,AM,ARM,689,"South & Central Asia, regional",Country
+"Asia, regional/multi-country",798,,QRA,798,"Asia, regional",Region
+Azerbaijan,611,AZ,AZE,689,"South & Central Asia, regional",Country
+Bangladesh,666,BD,BGD,689,"South & Central Asia, regional",Country
+Barbados,329,BB,BRB,389,"North & Central America, regional",Country
+Belarus,86,BY,BLR,89,"Europe, regional",Country
+Belize,352,BZ,BLZ,389,"North & Central America, regional",Country
+Benin,236,BJ,BEN,289,"South of Sahara, regional",Country
+Bhutan,630,BT,BTN,689,"South & Central Asia, regional",Country
+Bolivia,428,BO,BOL,489,"South America, regional",Country
+Bosnia-Herzegovina,64,BA,BIH,89,"Europe, regional",Country
+Botswana,227,BW,BWA,289,"South of Sahara, regional",Country
+Brazil,431,BR,BRA,489,"South America, regional",Country
+Burkina Faso,287,BF,BFA,289,"South of Sahara, regional",Country
+Burundi,228,BI,BDI,289,"South of Sahara, regional",Country
+Cambodia,728,KH,KHM,789,"Far East Asia, regional",Country
+Cameroon,229,CM,CMR,289,"South of Sahara, regional",Country
+Cape Verde,230,CV,CPV,289,"South of Sahara, regional",Country
+Central African Republic,231,CF,CAF,289,"South of Sahara, regional",Country
+"Central Asia, regional/multi-country",619,,QRS,619,"Central Asia, regional",Region
+Chad,232,TD,TCD,289,"South of Sahara, regional",Country
+Chile,434,CL,CHL,489,"South America, regional",Country
+China,730,CN,CHN,789,"Far East Asia, regional",Country
+Colombia,437,CO,COL,489,"South America, regional",Country
+Comoros,233,KM,COM,289,"South of Sahara, regional",Country
+"Congo, Dem. Rep.",235,CG,COD,289,"South of Sahara, regional",Country
+"Congo, Rep.",234,CG,COG,289,"South of Sahara, regional",Country
+Cook  Islands,831,CK,COK,889,"Oceania, regional",Country
+Costa Rica,336,CR,CRI,389,"North & Central America, regional",Country
+C,247,CI,CIV,289,"South of Sahara, regional",Country
+Croatia,62,HR,HRV,89,"Europe, regional",Country
+Cuba,338,CU,CUB,389,"North & Central America, regional",Country
+Developing countries unspecified,998,,QZA,998,"Bilateral, unspecified",Region
+Djibouti,274,DJ,DJI,289,"South of Sahara, regional",Country
+Dominica,378,DM,DMA,389,"North & Central America, regional",Country
+Dominican Republic,340,DO,DOM,389,"North & Central America, regional",Country
+Ecuador,440,EC,ECU,489,"South America, regional",Country
+Egypt,142,EG,EGY,189,"North of Sahara, regional",Country
+El Salvador,342,SV,SLV,389,"North & Central America, regional",Country
+Equatorial Guinea ,245,GQ,GNQ,289,"South of Sahara, regional",Country
+Eritrea,271,ER,ERI,289,"South of Sahara, regional",Country
+Ethiopia,238,ET,ETH,289,"South of Sahara, regional",Country
+"Europe, regional/multi-country",89,,QSA,89,"Europe, regional",Region
+"Far East Asia, regional/multi-country",789,,QRB,789,"Far East Asia, regional",Region
+Fiji,832,FJ,FJI,889,"Oceania, regional",Country
+Gabon,239,GA,GAB,289,"South of Sahara, regional",Country
+Gambia,240,GM,GMB,289,"South of Sahara, regional",Country
+Georgia,612,GE,GEO,689,"South & Central Asia, regional",Country
+Ghana,241,GH,GHA,289,"South of Sahara, regional",Country
+Grenada,381,GD,GRD,389,"North & Central America, regional",Country
+Guatemala,347,GT,GTM,389,"North & Central America, regional",Country
+Guinea,243,GN,GIN,289,"South of Sahara, regional",Country
+Guinea-Bissau,244,GW,GNB,289,"South of Sahara, regional",Country
+Guyana,446,GY,GUY,489,"South America, regional",Country
+Haiti,349,HT,HTI,389,"North & Central America, regional",Country
+Honduras,351,HN,HND,389,"North & Central America, regional",Country
+India ,645,IN,IND,689,"South & Central Asia, regional",Country
+Indonesia,738,ID,IDN,789,"Far East Asia, regional",Country
+Iran,540,IR,IRN,589,"Middle East, regional",Country
+Iraq,543,IQ,IRQ,589,"Middle East, regional",Country
+Jamaica,354,JM,JAM,389,"North & Central America, regional",Country
+Jordan,549,JO,JOR,589,"Middle East, regional",Country
+Kazakhstan,613,KZ,KAZ,689,"South & Central Asia, regional",Country
+Kenya ,248,KE,KEN,289,"South of Sahara, regional",Country
+Kiribati,836,KI,KIR,889,"Oceania, regional",Country
+"Korea, Dem.",740,KP,PRK,789,"Far East Asia, regional",Country
+Kosovo,57,,,89,"Europe, regional",Country
+Kyrgyz Rep.,614,KG,KGZ,689,"South & Central Asia, regional",Country
+Laos,745,LA,LAO,789,"Far East Asia, regional",Country
+Lebanon,555,LB,LBN,589,"Middle East, regional",Country
+Lesotho,249,LS,LSO,289,"South of Sahara, regional",Country
+Liberia,251,LR,LBR,289,"South of Sahara, regional",Country
+Libya,133,LY,LBY,189,"North of Sahara, regional",Country
+"Macedonia, FYR",66,MK,MKD,89,"Europe, regional",Country
+Madagascar,252,MG,MDG,289,"South of Sahara, regional",Country
+Malawi,253,MW,MWI,289,"South of Sahara, regional",Country
+Malaysia,751,MY,MYS,789,"Far East Asia, regional",Country
+Maldives,655,MV,MDV,689,"South & Central Asia, regional",Country
+Mali,255,ML,MLI,289,"South of Sahara, regional",Country
+Marshall Islands,859,MH,MHL,889,"Oceania, regional",Country
+Mauritania,256,MR,MRT,289,"South of Sahara, regional",Country
+Mauritius,257,MU,MUS,289,"South of Sahara, regional",Country
+Mayotte,258,KM,COM,289,"South of Sahara, regional",Country
+Mexico,358,MX,MEX,389,"North & Central America, regional",Country
+"Micronesia, Fed. Sts.",860,FM,FSM,889,"Oceania, regional",Country
+"Middle East, regional/multi-country",589,,QRE,589,"Middle East, regional",Region
+Moldova,93,MD,MDA,89,"Europe, regional",Country
+Mongolia,753,MN,MNG,789,"Far East Asia, regional",Country
+Montenegro,65,ME,MNE,89,"Europe, regional",Country
+Montserrat,385,MS,MSR,389,"North & Central America, regional",Country
+Morocco,136,MA,MAR,189,"North of Sahara, regional",Country
+Mozambique,259,MZ,MOZ,289,"South of Sahara, regional",Country
+Myanmar (Burma),635,MM,MMR,689,"South & Central Asia, regional",Country
+"N.&C. America, regional/multi-country",389,,QNC,389,"North & Central America, regional",Region
+Namibia,275,NA,NAM,289,"South of Sahara, regional",Country
+Nauru,845,NR,NRU,889,"Oceania, regional",Country
+Nepal,660,NP,NPL,689,"South & Central Asia, regional",Country
+Nicaragua,364,NI,NIC,389,"North & Central America, regional",Country
+Niger,260,NE,NER,289,"South of Sahara, regional",Country
+Nigeria,261,NG,NGA,289,"South of Sahara, regional",Country
+Niue,856,NU,NIU,889,"Oceania, regional",Country
+"North of Sahara, regional/multi-country",189,,QMD,189,"North of Sahara, regional",Region
+"Oceania, regional/multi-country",889,,QTA,889,"Oceania, regional",Region
+Oman,558,OM,OMN,589,"Middle East, regional",Country
+Pakistan,665,PK,PAK,689,"South & Central Asia, regional",Country
+Palau,861,PW,PLW,889,"Oceania, regional",Country
+Palestinian admin. Areas,550,PS,PSE,589,"Middle East, regional",Country
+Panama,366,PA,PAN,389,"North & Central America, regional",Country
+Papua New Guinea,862,PG,PNG,889,"Oceania, regional",Country
+Paraguay,451,PY,PRY,489,"South America, regional",Country
+Peru,454,PE,PER,489,"South America, regional",Country
+Philippines,755,PH,PHL,789,"Far East Asia, regional",Country
+Rwanda,266,RW,RWA,289,"South of Sahara, regional",Country
+Samoa,880,WS,WSM,889,"Oceania, regional",Country
+Sao Tome & Principe,268,ST,STP,289,"South of Sahara, regional",Country
+Senegal,269,SN,SEN,289,"South of Sahara, regional",Country
+Serbia,63,RS,SRB,89,"Europe, regional",Country
+Seychelles,270,SC,SYC,289,"South of Sahara, regional",Country
+Sierra Leone,272,SL,SLE,289,"South of Sahara, regional",Country
+Solomon Islands,866,SB,SLB,889,"Oceania, regional",Country
+Somalia,273,SO,SOM,289,"South of Sahara, regional",Country
+"South & Central Asia, regional/multi-country",689,,QRD,689,"South & Central Asia, regional",Region
+South Africa,218,ZA,ZAF,289,"South of Sahara, regional",Country
+"South America, regional/multi-country",489,,QNE,489,"South America, regional",Region
+"South Asia, regional/multi-country",679,,QRC,679,"South Asia, regional",Region
+"South of Sahara, regional/multi-country",289,,QME,289,"South of Sahara, regional",Region
+Sri Lanka,640,LK,LKA,689,"South & Central Asia, regional",Country
+St.Helena,276,SH,SHN,289,"South of Sahara, regional",Country
+St.Kitts-Nevis,382,KN,KNA,389,"North & Central America, regional",Country
+St.Lucia,383,LC,LCA,389,"North & Central America, regional",Country
+St.Vincent & Grenadines,384,VC,VCT,389,"North & Central America, regional",Country
+States of ex-Yugoslavia unspecified,88,,QYU,89,"Europe, regional",Region
+Sudan,278,SD,SDN,289,"South of Sahara, regional",Country
+Suriname,457,SR,SUR,489,"South America, regional",Country
+Swaziland,280,SZ,SWZ,289,"South of Sahara, regional",Country
+Syria,573,SY,SYR,589,"Middle East, regional",Country
+Tajikistan,615,TJ,TJK,689,"South & Central Asia, regional",Country
+Tanzania,282,TZ,TZA,289,"South of Sahara, regional",Country
+Thailand,764,TH,THA,789,"Far East Asia, regional",Country
+Timor Leste,765,TL,TLS,789,"Far East Asia, regional",Country
+Togo,283,TG,TGO,289,"South of Sahara, regional",Country
+Tokelau,868,TK,TKL,889,"Oceania, regional",Country
+Tonga,870,TO,TON,889,"Oceania, regional",Country
+Trinidad & Tobago,375,TT,TTO,389,"North & Central America, regional",Country
+Tunisia,139,TN,TUN,189,"North of Sahara, regional",Country
+Turkey  ,55,TR,TUR,89,"Europe, regional",Country
+Turkmenistan,616,TM,TKM,689,"South & Central Asia, regional",Country
+Tuvalu,872,TV,TUV,889,"Oceania, regional",Country
+Uganda,285,UG,UGA,289,"South of Sahara, regional",Country
+Ukraine,85,UA,UKR,89,"Europe, regional",Country
+Uruguay,460,UY,URY,489,"South America, regional",Country
+Uzbekistan,617,UZ,UZB,689,"South & Central Asia, regional",Country
+Vanuatu,854,VU,VUT,889,"Oceania, regional",Country
+Venezuela,463,VE,VEN,489,"South America, regional",Country
+Viet Nam,769,VN,VNM,789,"Far East Asia, regional",Country
+Wallis & Futuna,876,WF,WLF,889,"Oceania, regional",Country
+"West Indies, regional/multi-country",380,,QNB,380,"West Indies, regional",Region
+Yemen,580,YE,YEM,589,"Middle East, regional",Country
+Zambia,288,ZM,ZMB,289,"South of Sahara, regional",Country
+Zimbabwe,265,ZW,ZWE,289,"South of Sahara, regional",Country
