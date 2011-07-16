@@ -1,0 +1,165 @@
+Category of Government,Sector,Function,WB-Sectors,wb-sector-name,WB-sector-code
+General Public Service,Executive,Executive,,,
+General Public Service,Legislative,Legislative,,,
+General Public Service,Accountability,Central Financing Agency Administration,BO Public administration–Finance,Public administration–Finance,BO
+General Public Service,Accountability,Macroeconomic Policy,,,
+General Public Service,Accountability,Budgeting,,,
+General Public Service,Accountability,Debt And Aid Managment,,,
+General Public Service,Accountability,Tax Policy,,,
+General Public Service,Accountability,Tax Collection,,,
+General Public Service,Accountability,Local Government Finance,BH Sub-national government administration,Sub-national government administration,BH
+General Public Service,Accountability,Other Central Transfers To Institutions ,,,
+General Public Service,Accountability,National Audit,,,
+General Public Service,Accountability,National Monitoring And Evaluation,,,
+General Public Service,Accountability,Monetary Institutions,,,
+General Public Service,Accountability,Financial Sector Policy And Regulation,"FG Payment systems, securities clearance and settlement","Payment systems, securities clearance and settlement",FG
+General Public Service,Accountability,,FK Capital markets,Capital markets,FK
+General Public Service,Accountability,,FZ General finance,General finance,FZ
+General Public Service,External Affairs,Foreign Affairs ,,,
+General Public Service,External Affairs,Diplomatic Missions,,,
+General Public Service,External Affairs,Overseas Development Assistance,,,
+General Public Service,General Personnel Services,General Personnel Services,,,
+General Public Service,Statistics,Statisics,,,
+General Public Service,Other General Services,Support To Civil Society ,,,
+General Public Service,Other General Services,Central Procurement,,,
+General Public Service,Other General Services,Other General Services,CD Postal services,Postal services,CD
+General Public Service,Elections,Elections,,,
+"Justice, Law, Order and Security","Justice, Law and Order","Policy, Planning And Administration",,,
+"Justice, Law, Order and Security","Justice, Law and Order",Police,,,
+"Justice, Law, Order and Security","Justice, Law and Order",,,,
+"Justice, Law, Order and Security","Justice, Law and Order",Fire,,,
+"Justice, Law, Order and Security","Justice, Law and Order",Judicial Affairs,BG Law and justice,Law and justice,BG
+"Justice, Law, Order and Security","Justice, Law and Order",Human Rights Affairs,,,
+"Justice, Law, Order and Security","Justice, Law and Order",Immigration,,,
+"Justice, Law, Order and Security","Justice, Law and Order",Anti Corruption,,,
+"Justice, Law, Order and Security","Justice, Law and Order",Prisons,,,
+"Justice, Law, Order and Security","Justice, Law and Order",Peace Building,,,
+"Justice, Law, Order and Security","Justice, Law and Order",Demobilisation,,,
+"Justice, Law, Order and Security",Defence,"Policy, Planning And Administration",,,
+"Justice, Law, Order and Security",Defence,Military,,,
+"Justice, Law, Order and Security",Defence,Civil Defence,,,
+"Justice, Law, Order and Security",Defence,Foreign Military Aid,,,
+Economic Affairs,"General Economic, Commercial and Labour Affairs","Policy, Planning And Administration",,,
+Economic Affairs,"General Economic, Commercial and Labour Affairs",General,,,
+Economic Affairs,"General Economic, Commercial and Labour Affairs",Investment Promotion,,,
+Economic Affairs,"General Economic, Commercial and Labour Affairs",Privatisation,,,
+Economic Affairs,"General Economic, Commercial and Labour Affairs",Trade,YZ General industry and trade,General industry and trade,YZ
+Economic Affairs,"General Economic, Commercial and Labour Affairs",,YY Other domestic and international trade,Other domestic and international trade,YY
+Economic Affairs,"General Economic, Commercial and Labour Affairs",Labour,,,
+Economic Affairs,"General Economic, Commercial and Labour Affairs",National Standards Development,,,
+Economic Affairs,Public Works,"Policy, Planning And Administration",,,
+Economic Affairs,Public Works,Construction Regulation,,,
+Economic Affairs,Public Works,Mechanical Services,,,
+Economic Affairs,Agriculture,"Policy, Planning And Administration","BL Public administration – Agriculture, fishing, and forestry","Public administration – Agriculture, fishing, and forestry",BL
+Economic Affairs,Agriculture,Irrigation,AI Irrigation and drainage,Irrigation and drainage,AI
+Economic Affairs,Agriculture,Inputs,YD Petrochemicals and fertilizers,Petrochemicals and fertilizers,YD
+Economic Affairs,Agriculture,Food Crop,AH Crops,Crops,AH
+Economic Affairs,Agriculture,Industrial Crop,YA Agricultural marketing and trade,Agricultural marketing and trade,YA
+Economic Affairs,Agriculture,,YB Agro-industry,Agro-industry,YB
+Economic Affairs,Agriculture,Livestock,AJ Animal production,Animal production,AJ
+Economic Affairs,Agriculture,Agricultural Training And Extension,AB Agricultural extension and research,Agricultural extension and research,AB
+Economic Affairs,Agriculture,Research,,,
+Economic Affairs,Agriculture,Other Services,,,
+Economic Affairs,Forestry,"Policy, Planning And Administration",AT Forestry,Forestry,AT
+Economic Affairs,Forestry,Development And Services,,,
+Economic Affairs,Forestry,Education/training,,,
+Economic Affairs,Forestry,Research,,,
+Economic Affairs,Fishing and Hunting,"Policy, Planning And Administration",,,
+Economic Affairs,Fishing and Hunting,Development And Services,,,
+Economic Affairs,Fishing and Hunting,Education And Training,,,
+Economic Affairs,Fishing and Hunting,Research,,,
+Economic Affairs,Energy,"Policy, Planning And Administration",BU Public administration–Energy and Mining,Public administration–Energy and Mining,BU
+Economic Affairs,Energy,Education And Training,,,
+Economic Affairs,Energy,Energy Regulation,,,
+Economic Affairs,Energy,Electricity Transmission,LA District heating and energy efficiency services,District heating and energy efficiency services,LA
+Economic Affairs,Energy,Power Generation,LD Power,Power,LD
+Economic Affairs,Energy,Gas ,,,
+Economic Affairs,Mining and Mineral Development,"Policy, Planning And Administration",LB Mining and other extractive,Mining and other extractive,LB
+Economic Affairs,Mining and Mineral Development,Prospection And Exploration,,,
+Economic Affairs,Mining and Mineral Development,Coal And Other Solid Mineral Fuels,,,
+Economic Affairs,Mining and Mineral Development,Petroleum And Gas,LC Oil and gas,Oil and gas,LC
+Economic Affairs,Mining and Mineral Development,Nuclear,,,
+Economic Affairs,Mining and Mineral Development,Other Fuel,,,
+Economic Affairs,Mining and Mineral Development,Non Fuel Minerals,LE Renewable energy,Renewable energy,LE
+Economic Affairs,Transport,"Policy, Planning And Administration",BV Public administration–Transportation,Public administration–Transportation,BV
+Economic Affairs,Transport,Transport Regulation,,,
+Economic Affairs,Transport,Feeder Road Construction,TA Roads and highways,Roads and highways,TA
+Economic Affairs,Transport,Feeder Road Maintenance,,,
+Economic Affairs,Transport,National Road Construction,,,
+Economic Affairs,Transport,National Road Maintenance,,,
+Economic Affairs,Transport,Rail,TW Railways,Railways,TW
+Economic Affairs,Transport,Water,"TP Ports, waterways and shipping","Ports, waterways and shipping",TP
+Economic Affairs,Transport,Air,TV Aviation,Aviation,TV
+Economic Affairs,Transport,Pipeline,,,
+Economic Affairs,Transport,Storage And Distribution,,,
+Economic Affairs,Transport,Public Transport Services,,,
+Economic Affairs,Transport,Meteorological Services,,,
+Economic Affairs,Transport,Education And Training,,,
+Economic Affairs,Industry,"Policy, Planning And Administration",BT Public administration–Industry and Trade,Public administration–Industry and Trade,BT
+Economic Affairs,Industry,Development And Services,,,
+Economic Affairs,Industry,Industrial Research,,,
+Economic Affairs,Industry,(investment In Industry),,,
+Economic Affairs,Communication,"Policy, Planning And Administration",BM Public administration – Information and communications,Public administration – Information and communications,BM
+Economic Affairs,Communication,Ict,CA Information technology,Information technology,CA
+Economic Affairs,Communication,Telecoms,CT Telecommunications,Telecommunications,CT
+Economic Affairs,Communication,Information Services,,,
+Economic Affairs,Tourism,"Policy, Planning And Administration",,,
+Economic Affairs,Tourism,Services,,,
+Economic Affairs,Microfinance and financial services,Microfinance And Financial Services,FA Banking,Banking,FA
+Economic Affairs,Microfinance and financial services,,FE Micro- and SME finance,Micro- and SME finance,FE
+"Water, Natural Resource Management and Environment",Water supply and Sanitation,"Policy, Planning And Administration","BW Public administration–Water, sanitation and flood protection","Public administration–Water, sanitation and flood protection",BW
+"Water, Natural Resource Management and Environment",Water supply and Sanitation,Education/training,,,
+"Water, Natural Resource Management and Environment",Water supply and Sanitation,Rural Water Supply,WC Water supply,Water supply,WC
+"Water, Natural Resource Management and Environment",Water supply and Sanitation,Urban Water Supply,,,
+"Water, Natural Resource Management and Environment",Water supply and Sanitation,Rural Sanitation,WA Sanitation,Sanitation,WA
+"Water, Natural Resource Management and Environment",Water supply and Sanitation,Urban Sanitation,,,
+"Water, Natural Resource Management and Environment",Water supply and Sanitation,Sewage And Waste Management,WB Solid waste management,Solid waste management,WB
+"Water, Natural Resource Management and Environment",Water supply and Sanitation,,WS Sewerage,Sewerage,WS
+"Water, Natural Resource Management and Environment",Environment,"Policy, Planning And Administration",,,
+"Water, Natural Resource Management and Environment",Environment,Research/ Education And Training,,,
+"Water, Natural Resource Management and Environment",Environment,Natural Resource Management,,,
+"Water, Natural Resource Management and Environment",Environment,Water Resources Management,,,
+"Water, Natural Resource Management and Environment",Environment,"Wildlife Protection, Parks And Site Preservation",,,
+Social Affairs,Health,"Policy, Planning And Administration",BQ Public administration–Health,Public administration–Health,BQ
+Social Affairs,Health,,BK Compulsory health finance,Compulsory health finance,BK
+Social Affairs,Health,,JA Health,Health,JA
+Social Affairs,Health,,FB Non-compulsory health finance,Non-compulsory health finance,FB
+Social Affairs,"Recreation, Culture and Religion",Recreation And Sport,,,
+Social Affairs,"Recreation, Culture and Religion",Culture,,,
+Social Affairs,"Recreation, Culture and Religion",Broadcasting And Publishing,CB Media,Media,CB
+Social Affairs,"Recreation, Culture and Religion",Religion,,,
+Social Affairs,Education,"Administration, Policy And Planning",BN Public administration–Education,Public administration–Education,BN
+Social Affairs,Education,Research,,,
+Social Affairs,Education,Pre-primary,EC Pre-primary education,Pre-primary education,EC
+Social Affairs,Education,Primary,EP Primary education,Primary education,EP
+Social Affairs,Education,Lower Secondary,ES Secondary education,Secondary education,ES
+Social Affairs,Education,Upper Secondary,,,
+Social Affairs,Education,Post Secondary Non Tertiary ,,,
+Social Affairs,Education,Tertiary,ET Tertiary education,Tertiary education,ET
+Social Affairs,Education,Vocational Training,EV Vocational training,Vocational training,EV
+Social Affairs,Education,Advanced Technical And Mangerial Training,,,
+Social Affairs,Education,Basic Adult Education,EL Adult literacy/non-formal education,Adult literacy/non-formal education,EL
+Social Affairs,Education,Teacher Training,,,
+Social Affairs,Education,Subsidiary Services,,,
+Social Affairs,"Social Protection, Land Housing and Community Amenities","Policy, Planning And Administration",BS Public administration–Other social services,Public administration–Other social services,BS
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Social Security (excl Pensions),,,
+Social Affairs,"Social Protection, Land Housing and Community Amenities",General Pensions,"FD Non-compulsory pensions, insurance and contractual savings","Non-compulsory pensions, insurance and contractual savings",FD
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Civil Service And Military Pensions,BE Compulsory pension and unemployment insurance,Compulsory pension and unemployment insurance,BE
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Social Services (incl Youth Development And Women+children),JB Other social services,Other social services,JB
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Land Policy And Management,,,
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Rural Devt,,,
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Urban Devt,,,
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Housing And Community Amenities,FC Housing finance and real estate markets,Housing finance and real estate markets,FC
+Social Affairs,"Social Protection, Land Housing and Community Amenities",,YC Housing construction,Housing construction,YC
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Emergency Relief,,,
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Disaster Prevention And Preparedness,WD Flood protection,Flood protection,WD
+Social Affairs,"Social Protection, Land Housing and Community Amenities",Support To Refugees And Internally Displaced Persons,,,
+Development Partner Affairs,Development Partner affairs,Policy Planning And Administration,,,
+Development Partner Affairs,Development Partner affairs,Technical Staff Services,,,
+Other,Development Partner affairs,,"AZ General agriculture, fishing and forestry","General agriculture, fishing and forestry",AZ
+Other,Development Partner affairs,,BZ General public administration,General public administration,BZ
+Other,Development Partner affairs,,CZ General information and communications,General information and communications,CZ
+Other,Development Partner affairs,,LZ General energy,General energy,LZ
+Other,Development Partner affairs,,TZ General transportation,General transportation,TZ
+Other,Development Partner affairs,,"WZ General water, sanitation and flood protection","General water, sanitation and flood protection",WZ
+Other,Development Partner affairs,,YW Other industry,Other industry,YW

@@ -1,0 +1,247 @@
+Spine Sector,Proposed Spine sector level class,Proposed Spine function level class,CRS interface level (menu of disaggregated classifications to enable full reconciliation to CRS),DAC/CRS Code,lowest level DAC/CRS associated classifications
+General Public Service,Executive,Executive,,15140,Government administration 
+General Public Service,Legislative,Legislative,,15140,Government administration 
+General Public Service,Accountability,Macroeconomic Policy,,15120,Public sector financial management
+General Public Service,Accountability,Budgeting,,15120,Public sector financial management
+General Public Service,Accountability,Planning,,15110,Economic and development policy/planning
+General Public Service,Accountability,Debt And Aid Managment,action relating to debt,60010,Action relating to debt
+General Public Service,Accountability,Debt And Aid Managment,debt forgiveness,60020,Debt forgiveness 
+General Public Service,Accountability,Debt And Aid Managment,Relief of multilateral debt,60030,Relief of multilateral debt
+General Public Service,Accountability,Debt And Aid Managment,Rescheduling and refinancing,60040,Rescheduling and refinancing
+General Public Service,Accountability,Debt And Aid Managment,Debt for development swap,60061,Debt for development swap
+General Public Service,Accountability,Debt And Aid Managment,Other debt swap,60062,Other debt swap
+General Public Service,Accountability,Debt And Aid Managment,Debt buy-back,60063,Debt buy-back
+General Public Service,Accountability,Tax Policy,,15140,Government administration 
+General Public Service,Accountability,Tax Collection,,15140,Government administration 
+General Public Service,Accountability,Local Government Finance,,15141,Government administration 
+General Public Service,Accountability,Other Central Transfers To Institutions ,,15142,Government administration 
+General Public Service,Accountability,National Audit,,15140,Government administration 
+General Public Service,Accountability,National Monitoring And Evaluation,,15140,Government administration 
+General Public Service,Accountability,Monetary Institutions,,24020,Monetary institutions
+General Public Service,Accountability,Financial Sector Policy And Regulation,Public sector financial management,15120,Public sector financial management
+General Public Service,Accountability,Financial Sector Policy And Regulation,Financial policy and administrative management,24010,Financial policy and administrative management
+General Public Service,External Affairs,Foreign Affairs,,15140,Government administration 
+General Public Service,External Affairs,Diplomatic Missions,,15140,Government administration 
+General Public Service,External Affairs,Oda,non-CRS,x,
+General Public Service,General Personnel Services (public Service Commission),General Personnel Services,,15140,Government administration 
+General Public Service,Statistics,Statistics,,16062,Statistical capacity building
+General Public Service,Other General Services,Other General Services,,15140,Government administration 
+General Public Service,Other General Services,Central Procurement,non-CRS,x,
+General Public Service,Other General Services,Support To Civil Society ,Strengthening civil society,15150,Strengthening civil society
+General Public Service,Other General Services,Support To Civil Society ,Support to local and regional NGOs,92030,Support to local and regional NGOs
+General Public Service,Elections,Elections,,15140,Government administration 
+"Justice, Law, Order and Security","Justice, Law And Order","Policy, Planning And Administration",,15140,Government administration 
+"Justice, Law, Order and Security","Justice, Law And Order",Police,Government administration ,15140,Government administration 
+"Justice, Law, Order and Security","Justice, Law And Order",Police,Narcotics control,16063,Narcotics control
+"Justice, Law, Order and Security","Justice, Law And Order",Fire,,15140,Government administration 
+"Justice, Law, Order and Security","Justice, Law And Order",Judicial,,15130,Legal and judicial development
+"Justice, Law, Order and Security","Justice, Law And Order",Human Rights Affairs,,15162,Human rights
+"Justice, Law, Order and Security","Justice, Law And Order",Immigration,,15140,Government administration 
+"Justice, Law, Order and Security","Justice, Law And Order",Anti Corruption,,15120,Public sector financial management
+"Justice, Law, Order and Security","Justice, Law And Order",Prisons,,15140,Government administration 
+"Justice, Law, Order and Security","Justice, Law And Order",Peace Building ,"Civilian peace-building, conflict prevention and resolution",15220,"Civilian peace-building, conflict prevention and resolution"
+"Justice, Law, Order and Security","Justice, Law And Order",Peace Building ,Post-conflict peace-building (UN),15230,Post-conflict peace-building (UN)
+"Justice, Law, Order and Security","Justice, Law And Order",Demobilisation,Reintegration and SALW control,15240,Reintegration and SALW control
+"Justice, Law, Order and Security","Justice, Law And Order",Demobilisation,Child soldiers (Prevention and demobilisation) ,15261,Child soldiers (Prevention and demobilisation) 
+"Justice, Law, Order and Security",Defence,"Policy, Planning And Administration",,15210,Security system management and reform
+"Justice, Law, Order and Security",Defence,Military,Security system management and reform,15210,Security system management and reform
+"Justice, Law, Order and Security",Defence,Military,Land mine clearance,15250,Land mine clearance
+"Justice, Law, Order and Security",Defence,Civil Defence,,15210,Security system management and reform
+"Justice, Law, Order and Security",Defence,Foreign Military Aid,non-CRS,x,
+Economic Affairs,"General Economic, Commercial And Labour Affairs",General,,25010,Business support services and institutions
+Economic Affairs,"General Economic, Commercial And Labour Affairs",Investment Promotion,,25010,Business support services and institutions
+Economic Affairs,"General Economic, Commercial And Labour Affairs",Privatisation,,25020,Privatisation
+Economic Affairs,"General Economic, Commercial And Labour Affairs",Trade,Trade policy and administrative management,33110,Trade policy and administrative management
+Economic Affairs,"General Economic, Commercial And Labour Affairs",Trade,Trade facilitation,33120,Trade facilitation
+Economic Affairs,"General Economic, Commercial And Labour Affairs",Trade,Regional trade agreements (RTAs),33130,Regional trade agreements (RTAs)
+Economic Affairs,"General Economic, Commercial And Labour Affairs",Trade,Multilateral trade negotiations,33140,Multilateral trade negotiations
+Economic Affairs,"General Economic, Commercial And Labour Affairs",Trade,Trade-related adjustment,33150,Trade-related adjustment
+Economic Affairs,"General Economic, Commercial And Labour Affairs",Trade,Trade education/training,33181,Trade education/training
+Economic Affairs,"General Economic, Commercial And Labour Affairs",Labour,,16020,Employment policy and administrative management
+Economic Affairs,"General Economic, Commercial And Labour Affairs",National Standards Development,,15140,Government administration 
+Economic Affairs,Public Works And Construction,"Policy, Planning And Administration",,32310,Construction policy and administrative management
+Economic Affairs,Public Works And Construction,Construction Regulation,,32310,Construction policy and administrative management
+Economic Affairs,Public Works And Construction,Mechanical Services,,32310,Construction policy and administrative management
+Economic Affairs,Agriculture,"Policy, Planning And Administration",Agricultural policy and administrative management,31110,Agricultural policy and administrative management
+Economic Affairs,Agriculture,"Policy, Planning And Administration",Agrarian reform,31164,Agrarian reform
+Economic Affairs,Agriculture,Irrigation,,31140,Agricultural water resources
+Economic Affairs,Agriculture,Inputs,,31150,Agricultural inputs
+Economic Affairs,Agriculture,Food Crop,,31161,Food crop production
+Economic Affairs,Agriculture,Industrial Crop,,31162,Industrial crops/export crops
+Economic Affairs,Agriculture,Livestock,Livestock,31163,Livestock
+Economic Affairs,Agriculture,Livestock,Livestock/veterinary services,31195,Livestock/veterinary services
+Economic Affairs,Agriculture,Agricultural Training And Extension,Agricultural extension,31166,Agricultural extension
+Economic Affairs,Agriculture,Agricultural Training And Extension,Agricultural education/training,31181,Agricultural education/training
+Economic Affairs,Agriculture,Research,,31182,Agricultural research
+Economic Affairs,Agriculture,Other Services,Agricultural services,31191,Agricultural services
+Economic Affairs,Agriculture,Other Services,Agricultural alternative development,31165,Agricultural alternative development
+Economic Affairs,Agriculture,Other Services,Agricultural development,31120,Agricultural development
+Economic Affairs,Agriculture,Other Services,Agricultural land resources,31130,Agricultural land resources
+Economic Affairs,Agriculture,Other Services,Plant and post-harvest protection and pest control,31192,Plant and post-harvest protection and pest control
+Economic Affairs,Agriculture,Other Services,Agricultural financial services,31193,Agricultural financial services
+Economic Affairs,Agriculture,Other Services,Agricultural co-operatives,31194,Agricultural co-operatives
+Economic Affairs,Forestry,"Policy, Planning And Administration",,31210,Forestry policy and administrative management
+Economic Affairs,Forestry,Development And Services,Forestry development,31220,Forestry development
+Economic Affairs,Forestry,Development And Services,Fuelwood/charcoal,31261,Fuelwood/charcoal
+Economic Affairs,Forestry,Development And Services,Forestry education/training,31281,Forestry education/training
+Economic Affairs,Forestry,Development And Services,Forestry services,31291,Forestry services
+Economic Affairs,Forestry,Research,,31282,Forestry research
+Economic Affairs,Fishing,"Policy, Planning And Administration",,31310,Fishing policy and administrative management
+Economic Affairs,Fishing,Development And Services,Fishery development,31320,Fishery development
+Economic Affairs,Fishing,Development And Services,Fishery services,31391,Fishery services
+Economic Affairs,Fishing,Education And Training,,31381,Fishery education/training
+Economic Affairs,Fishing,Research,,31382,Fishery research
+Economic Affairs,Energy,"Policy, Planning And Administration",,23010,Energy policy and administrative management
+Economic Affairs,Energy,Research,,23082,Energy research
+Economic Affairs,Energy,Education And Training,,23081,Energy education/training
+Economic Affairs,Energy,Energy Regulation,,23010,Energy policy and administrative management
+Economic Affairs,Energy,Electricity Transmission,,23040,Electrical transmission/ distribution
+Economic Affairs,Energy,Power Generation,Power generation/non-renewable sources ,23020,Power generation/non-renewable sources 
+Economic Affairs,Energy,Power Generation,Power generation/renewable sources ,23030,Power generation/renewable sources 
+Economic Affairs,Energy,Power Generation,Oil-fired power plants,23061,Oil-fired power plants
+Economic Affairs,Energy,Power Generation,Gas-fired power plants,23062,Gas-fired power plants
+Economic Affairs,Energy,Power Generation,Coal-fired power plants,23063,Coal-fired power plants
+Economic Affairs,Energy,Power Generation,Nuclear power plants,23064,Nuclear power plants
+Economic Affairs,Energy,Power Generation,Hydro-electric power plants,23065,Hydro-electric power plants
+Economic Affairs,Energy,Power Generation,Geothermal energy,23066,Geothermal energy
+Economic Affairs,Energy,Power Generation,Solar energy,23067,Solar energy
+Economic Affairs,Energy,Power Generation,Wind power,23068,Wind power
+Economic Affairs,Energy,Power Generation,Ocean power,23069,Ocean power
+Economic Affairs,Energy,Power Generation,Biomass,23070,Biomass
+Economic Affairs,Energy,Gas ,,23050,Gas distribution
+Economic Affairs,Mining And Mineral Development,"Policy, Planning And Administration",,32210,Mineral/mining policy and administrative management
+Economic Affairs,Mining And Mineral Development,Prospection And Exploration,,32220,Mineral prospection and exploration
+Economic Affairs,Mining And Mineral Development,Coal And Other Solid Mineral Fuels,,32261,Coal
+Economic Affairs,Mining And Mineral Development,Petroleum And Gas,,32262,Oil and gas
+Economic Affairs,Mining And Mineral Development,Nuclear,non-CRS,x,
+Economic Affairs,Mining And Mineral Development,Other Fuel,Coal,32261,Coal
+Economic Affairs,Mining And Mineral Development,Other Fuel,Oil and gas,32262,Oil and gas
+Economic Affairs,Mining And Mineral Development,Non Fuel Minerals,Ferrous metals,32263,Ferrous metals
+Economic Affairs,Mining And Mineral Development,Non Fuel Minerals,Nonferrous metals,32264,Nonferrous metals
+Economic Affairs,Mining And Mineral Development,Non Fuel Minerals,Precious metals/materials,32265,Precious metals/materials
+Economic Affairs,Mining And Mineral Development,Non Fuel Minerals,Industrial minerals,32266,Industrial minerals
+Economic Affairs,Mining And Mineral Development,Non Fuel Minerals,Fertilizer minerals,32267,Fertilizer minerals
+Economic Affairs,Mining And Mineral Development,Non Fuel Minerals,Offshore minerals,32268,Offshore minerals
+Economic Affairs,Transport,"Policy, Planning And Administration",,21010,Transport policy and administrative management
+Economic Affairs,Transport,Transport Regulation,,21010,Transport policy and administrative management
+Economic Affairs,Transport,Feeder Road Construction,,21020,Road transport
+Economic Affairs,Transport,Feeder Road Maintenance,,21020,Road transport
+Economic Affairs,Transport,National Road Construction,,21020,Road transport
+Economic Affairs,Transport,National Road Maintenance,,21020,Road transport
+Economic Affairs,Transport,Rail,,21040,Water transport
+Economic Affairs,Transport,Water,,21030,Rail transport
+Economic Affairs,Transport,Air,,21050,Air transport
+Economic Affairs,Transport,Pipeline,,21010,Transport policy and administrative management
+Economic Affairs,Transport,Storage And Distribution,,21061,Storage
+Economic Affairs,Transport,Public Transport Services,,21010,Transport policy and administrative management
+Economic Affairs,Transport,Meteorological Services,,15140,Government administration 
+Economic Affairs,Transport,Education And Training,,21081,Education and training in transport and storage
+Economic Affairs,Industry,"Policy, Planning And Administration",,32110,Industrial policy and administrative management
+Economic Affairs,Industry,Development And Services,Industrial development,32120,Industrial development
+Economic Affairs,Industry,Development And Services,Small and medium-sized enterprises (SME) development,32130,Small and medium-sized enterprises (SME) development
+Economic Affairs,Industry,Industrial Research,,32182,Technological research and development
+Economic Affairs,Industry,(investment In Industry),Cottage industries and handicraft,32140,Cottage industries and handicraft
+Economic Affairs,Industry,(investment In Industry),Agro-industries,32161,Agro-industries
+Economic Affairs,Industry,(investment In Industry),Forest industries,32162,Forest industries
+Economic Affairs,Industry,(investment In Industry),"Textiles, leather and substitutes",32163,"Textiles, leather and substitutes"
+Economic Affairs,Industry,(investment In Industry),Chemicals ,32164,Chemicals 
+Economic Affairs,Industry,(investment In Industry),Fertilizer plants,32165,Fertilizer plants
+Economic Affairs,Industry,(investment In Industry),Cement/lime/plaster,32166,Cement/lime/plaster
+Economic Affairs,Industry,(investment In Industry),Energy manufacturing,32167,Energy manufacturing
+Economic Affairs,Industry,(investment In Industry),Pharmaceutical production,32168,Pharmaceutical production
+Economic Affairs,Industry,(investment In Industry),Basic metal industries,32169,Basic metal industries
+Economic Affairs,Industry,(investment In Industry),Non-ferrous metal industries,32170,Non-ferrous metal industries
+Economic Affairs,Industry,(investment In Industry),Engineering,32171,Engineering
+Economic Affairs,Industry,(investment In Industry),Transport equipment industry,32172,Transport equipment industry
+Economic Affairs,Communication,"Policy, Planning And Administration",,22010,Communications policy and administrative management
+Economic Affairs,Communication,Ict,,22040,Information and communication technology (ICT)
+Economic Affairs,Communication,Telecoms,,22020,Telecommunications
+Economic Affairs,Communication,Information Services,,22040,Information and communication technology (ICT)
+Economic Affairs,Tourism,"Policy, Planning And Administration",,33210,Tourism policy and administrative management
+Economic Affairs,Tourism,Services,,33210,Tourism policy and administrative management
+Economic Affairs,Microfinance And Financial Services,Microfinance And Financial Services,,24030,Formal sector financial intermediaries
+Economic Affairs,Microfinance And Financial Services,Microfinance And Financial Services,,24040,Informal/semi-formal financial intermediaries
+Economic Affairs,Microfinance And Financial Services,Microfinance And Financial Services,,24081,Education/training in banking and financial services
+"Water, natural Resource Management and Environment",Water Supply And Sanitation,"Policy, Planning And Administration",,14010,Water resources policy and administrative management
+"Water, natural Resource Management and Environment",Water Supply And Sanitation,Education/training,,14081,Education and training in water supply and sanitation 
+"Water, natural Resource Management and Environment",Water Supply And Sanitation,Rural,,14020,Water supply and sanitation - large systems
+"Water, natural Resource Management and Environment",Water Supply And Sanitation,Urban,,14030,Basic drinking water supply and basic sanitation
+"Water, natural Resource Management and Environment",Water Supply And Sanitation,Rural Sanitation,,14030,Basic drinking water supply and basic sanitation
+"Water, natural Resource Management and Environment",Water Supply And Sanitation,Urban Sanitation,,14020,Water supply and sanitation - large systems
+"Water, natural Resource Management and Environment",Water Supply And Sanitation,Sewage And Waste Management,,14050,Waste management/disposal
+"Water, natural Resource Management and Environment",Environment,"Policy, Planning And Administration",,41010,Environmental policy and administrative management
+"Water, natural Resource Management and Environment",Environment,Research,,41082,Environmental research
+"Water, natural Resource Management and Environment",Environment,Education And Training,,41081,Environmental education/ training
+"Water, natural Resource Management and Environment",Environment,Natural Resource Management,,41020,Biosphere protection
+"Water, natural Resource Management and Environment",Environment,Water Resources Management,Water resources protection,14015,Water resources protection
+"Water, natural Resource Management and Environment",Environment,Water Resources Management,River development,14040,River development
+"Water, natural Resource Management and Environment",Environment,Water Resources Management,Flood prevention/control,41050,Flood prevention/control
+"Water, natural Resource Management and Environment",Environment,"Wildlife Protection, Parks And Site Preservation",Bio-diversity,41030,Bio-diversity
+"Water, natural Resource Management and Environment",Environment,"Wildlife Protection, Parks And Site Preservation",Site preservation,41040,Site preservation
+Social Affairs,Health,"Policy, Planning And Administration",,12110,Health policy and administrative management
+Social Affairs,Health,Pharmaceutical,,12181,Medical education/training
+Social Affairs,Health,Public Service,,12182,Medical research
+Social Affairs,Health,Infectious Disease Control,,12191,Medical services
+Social Affairs,Health,Infectious Disease Control,,12220,Basic health care
+Social Affairs,Health,Infectious Disease Control,,12230,Basic health infrastructure
+Social Affairs,Health,Infectious Disease Control,,12240,Basic nutrition
+Social Affairs,Health,Infectious Disease Control,,12250,Infectious disease control
+Social Affairs,Health,Infectious Disease Control,,12261,Health education
+Social Affairs,Health,Infectious Disease Control,,12262,Malaria control
+Social Affairs,Health,Infectious Disease Control,,12263,Tuberculosis control
+Social Affairs,Health,Infectious Disease Control,,12281,Health personnel development
+Social Affairs,Health,Infectious Disease Control,,13010,Population policy and administrative management
+Social Affairs,Health,Infectious Disease Control,,13020,Reproductive health care
+Social Affairs,Health,Infectious Disease Control,,13030,Family planning
+Social Affairs,Health,Infectious Disease Control,,13040,STD control including HIV/AIDS
+Social Affairs,Health,Infectious Disease Control,,13081,Personnel development for population and reproductive health
+Social Affairs,Health,Infectious Disease Control,,16064,Social mitigation of HIV/AIDS
+Social Affairs,"Recreation, Culture And Religion",Recreation And Sport,,16061,Culture and recreation
+Social Affairs,"Recreation, Culture And Religion",Culture,,16061,Culture and recreation
+Social Affairs,"Recreation, Culture And Religion",Broadcasting And Publishing,,22030,Radio/television/print media
+Social Affairs,"Recreation, Culture And Religion",Religion,non-CRS,x,
+Social Affairs,Education,"Administration, Policy And Planning",,11110,Education policy and administrative management
+Social Affairs,Education,Research,,11182,Educational research
+Social Affairs,Education,Pre-primary,,11240,Early childhood education
+Social Affairs,Education,Primary,,11220,Primary education
+Social Affairs,Education,Lower Secondary,,11320,Secondary education
+Social Affairs,Education,Upper Secondary,,11320,Secondary education
+Social Affairs,Education,Post Secondary Non Tertiary ,,11230,Basic life skills for youth and adults 
+Social Affairs,Education,Tertiary,,11420,Higher education
+Social Affairs,Education,Vocational Training,,11330,Vocational training
+Social Affairs,Education,Advanced Technical And Mangerial Training,,11430,Advanced technical and managerial training
+Social Affairs,Education,Basic Adult Education,,11230,Basic life skills for youth and adults 
+Social Affairs,Education,Teacher Training,,11130,Teacher training
+Social Affairs,Education,Subsidiary Services,,11120,Education facilities and training
+Social Affairs,"Social Protection, Land Housing And Community Amenities","Policy, Planning And Administration",,16010,Social/ welfare services
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Social Security (excl Pensions),,16010,Social/ welfare services
+Social Affairs,"Social Protection, Land Housing And Community Amenities",General Pensions,,16010,Social/ welfare services
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Civil Service And Military Pensions,,16010,Social/ welfare services
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Social Services (incl Youth Development And Women+children?),Womenâs equality organisations and institutions,15164,Womenâs equality organisations and institutions
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Social Services (incl Youth Development And Women+children?),Social/ welfare services,16010,Social/ welfare services
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Land Policy And Management,Environmental policy and administrative management,41010,Environmental policy and administrative management
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Land Policy And Management,Urban development and management,43030,Urban development and management
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Land Policy And Management,Rural development,43040,Rural development
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Rural Devt,,43040,Rural development
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Urban Devt,,43030,Urban development and management
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Housing And Community Amenities,Housing policy and administrative management,16030,Housing policy and administrative management
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Housing And Community Amenities,Low-cost housing,16040,Low-cost housing
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Emergency Relief,Material relief assistance and services ,72010,Material relief assistance and services 
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Emergency Relief,Emergency food aid,72040,Emergency food aid
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Emergency Relief,Relief co-ordination; protection and support services ,72050,Relief co-ordination; protection and support services 
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Disaster Prevention And Preparedness,Reconstruction relief and rehabilitation,73010,Reconstruction relief and rehabilitation
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Disaster Prevention And Preparedness,Disaster prevention and preparedness,74010,Disaster prevention and preparedness
+Social Affairs,"Social Protection, Land Housing And Community Amenities",Support To Refugees And Internally Displaced Persons,,72010,Material relief assistance and services 
+Development Partner Affairs,Policy Planning And Administration,Policy Planning And Administration,,91010,Administrative costs
+Development Partner Affairs,Policy Planning And Administration,Technical Staff Services,,91010,Administrative costs
+Not classifiable,Policy Planning And Administration,Political,,15163,Free flow of information
+Not classifiable,Policy Planning And Administration,External (not Spent In Country),,53030,Import support (capital goods)
+Not classifiable,Policy Planning And Administration,External (not Spent In Country),,53040,Import support (commodities)
+Not classifiable,Policy Planning And Administration,External (not Spent In Country),,92010,Support to national NGOs
+Not classifiable,Policy Planning And Administration,External (not Spent In Country),,92020,Support to international NGOs
+Not classifiable,Policy Planning And Administration,External (not Spent In Country),,93010,Refugees in donor countries
+Not classifiable,Policy Planning And Administration,External (not Spent In Country),,99820,Promotion of development awareness
+Not classifiable,Policy Planning And Administration,Non Sectoral,,51010,General budget support
+Not classifiable,Policy Planning And Administration,Multisectoral,Multisector aid for basic social services ,16050,Multisector aid for basic social services 
+Not classifiable,Policy Planning And Administration,Multisectoral,Multisector aid,43010,Multisector aid
+Not classifiable,Policy Planning And Administration,Multisectoral,Sectors not specified,99810,Sectors not specified
