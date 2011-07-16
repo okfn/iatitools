@@ -23,3 +23,14 @@ GOOGLE REFINE COMMANDS contains details of the Google Refine commands that you c
 * Add Spine mapping to Sectors
 * Remove Z from the end of DFID dates
 * Delete all rows where vocabulary is WBTheme (accidentally brought in on import, will be removed later)
+
+Other useful things
+===================
+
+Concatenating CSV files
+-----------------------
+
+In Linux you can use this command in the terminal to concatenate (stick together) a large number of CSV files:
+cat *.csv > newfile.csv
+
+Note that this will retain the headers of each CSV file as well, so you might then want to load it into Refine and delete those header rows which remain.
