@@ -1,0 +1,31 @@
+Google Refine commands for normalising IATI CSV data. NB all the commands start with (but exclude) grel:
+* Map countries to regions [1]
+* Convert currency to EUR (GBP->EUR and USD->EUR) [2]
+* Add Spine mapping to Sectors [3-5]
+* Remove Z from the end of DFID dates [6-10]
+* Delete all rows where vocabulary is WBTheme (accidentally brought in on import, will be removed later) [11]
+
+
+
+
+1. On activity_recipient_region: grel:if((value==null), (cells["activity_recipient_country_code"].cross("ISO DAC Countries Regions", "iso2").cells["dac_region_name"].value[0]), value)
+
+2.Create new column amount based on column item_value by filling 78983 rows with grel:if ((cells["currency"].value=='GBP'), (value*1.10392), (value*0.689117))
+
+3.Create new column spine based on column item_sector_code by filling 47292 rows with grel:toTitlecase(if ((cells["item_sector_vocabulary"].value=='DAC'), (cell.cross("spine dac crs", "DAC/CRS Code").cells["Spine Sector"].value[0]), (cell.cross("wbsectors", "WB-sector-code").cells["Category of Government"].value[0])))
+
+4.Create new column spine_sector based on column item_sector_code by filling 47292 rows with grel:toTitlecase(if ((cells["item_sector_vocabulary"].value=='DAC'), (cell.cross("spine dac crs", "DAC/CRS Code").cells["Proposed Spine sector level class"].value[0]), (cell.cross("wbsectors", "WB-sector-code").cells["Sector"].value[0])))
+
+5.Create new column spine_function based on column item_sector_code by filling 42922 rows with grel:toTitlecase(if ((cells["item_sector_vocabulary"].value=='DAC'), (cell.cross("spine dac crs", "DAC/CRS Code").cells["Proposed Spine function level class"].value[0]), (cell.cross("wbsectors", "WB-sector-code").cells["Function"].value[0])))
+
+6.Text transform on 34133 cells in column value_date: grel:if (cells["activity_reporting_org"].value=="Department for International Development", value[0,10], value)
+
+7.Text transform on 33841 cells in column date_end_planned: grel:if (cells["activity_reporting_org"].value=="Department for International Development", value[0,10], value)
+
+8.Text transform on 34133 cells in column date_start_planned: grel:if (cells["activity_reporting_org"].value=="Department for International Development", value[0,10], value)
+
+9.Text transform on 33841 cells in column date_end_actual: grel:if (cells["activity_reporting_org"].value=="Department for International Development", value[0,10], value)
+
+10.Text transform on 34133 cells in column date_start_actual: grel:if (cells["activity_reporting_org"].value=="Department for International Development", value[0,10], value)
+
+11. Delete all rows where the item_sector_vocabulary is WBTheme

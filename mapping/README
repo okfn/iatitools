@@ -13,3 +13,13 @@ The "Spine" is intended to be a best-fit mapping between different sectoral clas
 * spine-wbsectors.csv maps WB Sector codes to the Spine
 
 Please use both of these files with caution. They are not intended to be authoritative!
+
+Google Refine Commands 
+----------------------
+
+GOOGLE REFINE COMMANDS contains details of the Google Refine commands that you can run on IATI CSV files after creating them, for normalising the data:
+* Map countries to regions
+* Convert currency to EUR (GBP->EUR and USD->EUR)
+* Add Spine mapping to Sectors
+* Remove Z from the end of DFID dates
+* Delete all rows where vocabulary is WBTheme (accidentally brought in on import, will be removed later)
