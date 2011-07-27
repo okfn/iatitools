@@ -2,6 +2,7 @@ from lxml import etree
 from pprint import pprint
 import csv
 import sqlalchemy
+from datetime import date, datetime
 import os
 from sqlalchemy import create_engine
 engine = create_engine('sqlite:///iatidata_new.sqlite', echo=False)
@@ -163,7 +164,7 @@ def get_date(out, node, name, key):
     if de is not None:
         out[key] = de.get('iso-date')
 
-def parse_activity(activity, out):
+def parse_activity(activity, out, package_filename):
     out['default_currency'] = activity.get("default-currency")
     nodecpy(out, activity.find('reporting-org'),
             'reporting_org', {'ref': 'ref', 
@@ -284,7 +285,7 @@ def parse_activity(activity, out):
                 'percentage': int(percentage),
                 'vocabulary': vocab
             }
-            missingfields(sector, Sector)
+            missingfields(sector, Sector, package_filename)
             s = Sector(**tsector)
             session.add(s)
         except ValueError:
@@ -303,7 +304,7 @@ def parse_activity(activity, out):
                 'relref': ratemp['related_activity_ref'],
                 'reltype': ratemp['related_activity_type']                    
             }
-            missingfields(related_activity, RelatedActivity)
+            missingfields(related_activity, RelatedActivity, package_filename)
             rela = RelatedActivity(**related_activity)
             session.add(rela)
         except ValueError:
@@ -312,21 +313,28 @@ def parse_activity(activity, out):
     for tx in activity.findall("transaction"):
         transaction = parse_tx(tx)
         transaction['iati_identifier'] = out['iati_identifier']
-        missingfields(transaction, Transaction)
+        missingfields(transaction, Transaction, package_filename)
         t = Transaction(**transaction)
         session.add(t)
-    missingfields(out, Activity)
+    missingfields(out, Activity, package_filename)
     x = Activity(**out) 
     session.add(x)
     session.commit()
     return (out)
 
-def missingfields(dict_, obj):
+def missingfields(dict_, obj, package):
     missing = [ k for k in dict_ if k not in obj.__table__.c.keys() ]
     if missing:
         print "XXXX ", obj.__name__, missing
+        logtext = "Missing fields in package " + package + ": " + str(obj.__name__) + " " + str(missing) + "\n"
+        log(logtext)
     for m in missing:
         del dict_[m]
+
+def log(logtext):
+        inp=file('log-' + str(date.today()) + '.txt', 'a')
+        inp.write(logtext)
+        inp.close()
 
 def load_file(file_name, context=None):
     doc = etree.parse(file_name)
@@ -335,51 +343,37 @@ def load_file(file_name, context=None):
     context['source_file'] = file_name
     print "Parsing ", file_name
     for activity in doc.findall("iati-activity"):
-        out = parse_activity(activity, context.copy())
+        out = parse_activity(activity, context.copy(), file_name)
 
 
-# replace load_registry with load_package (run iatidownload.py to create packages in /packages first)
 def load_package():
-    path = 'packages/'
+
+    if (len(sys.argv) > 1):
+        packagedir = sys.argv[1]
+    else:
+        packagedir = str(date.today())
+        print "No package folder defined (you can supply the argument YYYY-MM-DD for a particular date of packages), so using today's date\n"
+        logtext = "No package folder defined, so reverting to today's date\n"
+        log(logtext)
+    
+    path = 'packages/' + packagedir
     listing = os.listdir(path)
     for infile in listing:
         try:
-            load_file('packages/' + infile)
+            load_file(path + '/' + infile)
         except Exception, e:
             print 'Failed:', e
-            
-# previously: load direct from registry. now downlaod packages first, then iterate with load_package
-def load_registry(url='http://iatiregistry.org/api'):
-    import ckanclient
-    registry = ckanclient.CkanClient(base_location=url)
-    startnow = False
-    for pkg_name in registry.package_register_get():
-        # testing - get one package only
-        if (pkg_name == 'wb-zw'):
-            pkg = registry.package_entity_get(pkg_name)
-            for resource in pkg.get('resources', []):
-                print resource.get('url')
-                try:
-                    load_file(resource.get('url'))
-                except Exception, e:
-                    print "Failed:", e
+            logtext = "Couldn't load file: " + str(e) + "\n"
+            log(logtext)
 
-def write_csv(transactions, filename='iati.csv'):
-    fh = open(filename, 'w')
-    keys = []
-    for transaction in transactions:
-        keys.extend(transaction.keys())
-    writer = csv.DictWriter(fh, fieldnames=list(set(keys)))
-    writer.writerow(dict([(k,k) for k in keys]))
-    for transaction in transactions:
-        row = dict([(k, unicode(v).encode('utf-8')) for (k, v) in transaction.items() if
-            v is not None])
-        writer.writerow(row)
-    fh.close()
 
 if __name__ == '__main__':
     import sys
-    #transactions = load_file(sys.argv[1])
-    load_package()
+    try:
+        load_package()
+    except Exception, e:
+        print 'Failed:', e
+        logtext = "Couldn't load package: " + str(e) + "\n"
+        log(logtext)
     print session.query(Activity).count()
     print session.query(Transaction).count()
