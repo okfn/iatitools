@@ -1,8 +1,10 @@
 import sys
 import ckan    
 import urllib
+from datetime import date
+import os
 
-def run():
+def run(directory):
     url = 'http://iatiregistry.org/api'
     import ckanclient
     registry = ckanclient.CkanClient(base_location=url)
@@ -12,20 +14,28 @@ def run():
             for resource in pkg.get('resources', []):
                 print resource.get('url')
                 try:
-                    save_file(pkg_name, resource.get('url'))
+                    save_file(pkg_name, resource.get('url'), dir)
                 except Exception, e:
                     print "Failed:", e
-                    print "Did you create the /packages directory in the same folder as you're running this script?"
+                    print "Couldn't find directory"
 
-def save_file(pkg_name, url):
+def save_file(pkg_name, url, dir):
 	webFile = urllib.urlopen(url)
-	localFile = open('packages/' + url.split('/')[-1] + '.xml', 'w')
+	localFile = open(dir + '/' + url.split('/')[-1] + '.xml', 'w')
 	localFile.write(webFile.read())
 	webFile.close()
 
 if __name__ == '__main__':
     import sys
     thetransactions = []
-    run()
+    dir = 'packages/' + str(date.today())
+    if not os.path.exists(dir):
+        try:
+            os.makedirs(dir)
+        except Exception, e:
+            print "Failed:", e
+            print "Couldn't create directory".
+    run(dir)
+
     
 
