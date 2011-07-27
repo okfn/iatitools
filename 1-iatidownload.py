@@ -34,7 +34,7 @@ if __name__ == '__main__':
             os.makedirs(dir)
         except Exception, e:
             print "Failed:", e
-            print "Couldn't create directory".
+            print "Couldn't create directory"
     run(dir)
 
     
