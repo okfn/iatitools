@@ -88,7 +88,7 @@ class Transaction(Base):
     receiver_org_type = Column(UnicodeText)
     description = Column(UnicodeText)
     transaction_date = Column(UnicodeText)
-    transaction_date_iso = Column(Date)
+    transaction_date_iso = Column(UnicodeText)
     flow_type = Column(UnicodeText)
     flow_type_code = Column(UnicodeText)
     aid_type = Column(UnicodeText)
@@ -148,9 +148,26 @@ def parse_tx(tx):
             'tied_status', {'code': 'code'})
     nodecpy(out, tx.find('aid-type'),
             'aid_type', {})
-    get_date(out, tx, 'transaction-date', 'transaction_date_iso')
-    if tx.findtext('transaction-date'):
-        out['transaction_date'] = tx.findtext('transaction-date')
+
+    for date in tx.findall('transaction-date'):
+        try:
+            # for some (WB) projects, the date is not set even though the tag exists...
+            if (date is not None):
+                temp = {}
+                nodecpy(temp, date,
+                    'date',
+                    {'iso-date': 'iso-date'})
+
+                if (temp['date_iso-date']):
+                    d = (temp['date_iso-date'])
+                    out['transaction_date_iso'] = d
+                else:    
+                    out['transaction_date_iso'] = out['value_date']
+            else:
+                print "No date!!"
+           
+        except ValueError:
+            pass
     nodecpy(out, tx.find('disembursement-channel'),
             'disembursement_channel', {'code': 'code'})
     nodecpy(out, tx.find('provider-org'),
@@ -210,26 +227,44 @@ def parse_activity(activity, out, package_filename):
     for date in activity.findall('activity-date'):
         try:
             # for some (WB) projects, the date is not set even though the tag exists...
-            if (date.text is not None):
+            if (date is not None):
                 temp = {}
                 nodecpy(temp, date,
                     'date',
                     {'type': 'type', 'iso-date': 'iso-date'})
                  
                 datetype = temp['date_type']
-                
-                if ((datetype == 'start-actual') and (temp['date'])):
-                    d = (temp['date'])
-                    out['date_start_actual'] = d
-                if ((datetype == 'start-planned') and (temp['date'])):
-                    d = (temp['date'])
-                    out['date_start_planned'] = d
-                if ((datetype == 'end-actual') and (temp['date'])):
-                    d = (temp['date'])
-                    out['date_end_actual'] = d
-                if ((datetype == 'end-planned') and (temp['date'])):
-                    d = (temp['date'])
-                    out['date_end_planned'] = d
+                # Sometimes the date is placed in the @iso-date attribute
+                # Sometimes (DFID only?) the date is placed in the text
+                # Sometimes the date tag is opened but then empty.
+                if (datetype == 'start-actual'):
+                    if (temp['date_iso-date'] is not None):
+                        d = (temp['date_iso-date'])
+                        out['date_start_actual'] = d
+                    elif (temp['date'] is not None):
+                        d = (temp['date'])
+                        out['date_start_actual'] = d
+                if (datetype == 'start-planned'):
+                    if (temp['date_iso-date'] is not None):
+                        d = (temp['date_iso-date'])
+                        out['date_start_planned'] = d
+                    elif (temp['date'] is not None):
+                        d = (temp['date'])
+                        out['date_start_planned'] = d
+                if (datetype == 'end-actual'):
+                    if (temp['date_iso-date'] is not None):
+                        d = (temp['date_iso-date'])
+                        out['date_end_actual'] = d
+                    elif (temp['date'] is not None):
+                        d = (temp['date'])
+                        out['date_end_actual'] = d
+                if (datetype == 'end-planned'):
+                    if (temp['date_iso-date'] is not None):
+                        d = (temp['date_iso-date'])
+                        out['date_end_planned'] = d
+                    elif (temp['date'] is not None):
+                        d = (temp['date'])
+                        out['date_end_planned'] = d
             else:
                 print "No date!!"
            
@@ -325,7 +360,6 @@ def parse_activity(activity, out, package_filename):
 def missingfields(dict_, obj, package):
     missing = [ k for k in dict_ if k not in obj.__table__.c.keys() ]
     if missing:
-        print "XXXX ", obj.__name__, missing
         logtext = "Missing fields in package " + package + ": " + str(obj.__name__) + " " + str(missing) + "\n"
         log(logtext)
     for m in missing:
@@ -358,12 +392,18 @@ def load_package():
     
     path = 'packages/' + packagedir
     listing = os.listdir(path)
+    totalfiles = len(listing)
+    print "Found", totalfiles, "files."
+    filecount = 1
     for infile in listing:
-        try:
+        try:            
+            print ""
+            print "Loading file", filecount, "of", totalfiles, "(", round(((float(filecount)/float(totalfiles))*100),2), "%)"
+            filecount = filecount +1
             load_file(path + '/' + infile)
         except Exception, e:
             print 'Failed:', e
-            logtext = "Couldn't load file: " + str(e) + "\n"
+            logtext = "Error in file: " + infile + " - " + str(e) + "\n"
             log(logtext)
 
 
