@@ -21,7 +21,7 @@ def run(directory):
 
 def save_file(pkg_name, url, dir):
 	webFile = urllib.urlopen(url)
-	localFile = open(dir + '/' + url.split('/')[-1] + '.xml', 'w')
+	localFile = open(dir + '/' + pkg_name + '.xml', 'w')
 	localFile.write(webFile.read())
 	webFile.close()
 
