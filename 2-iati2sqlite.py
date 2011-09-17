@@ -161,13 +161,13 @@ def parse_tx(tx):
                 if (temp['date_iso-date']):
                     d = (temp['date_iso-date'])
                     out['transaction_date_iso'] = d
-                else:    
-                    out['transaction_date_iso'] = out['value_date']
             else:
                 print "No date!!"
            
         except ValueError:
             pass
+    if not (out.has_key('transaction_date_iso')):
+        out['transaction_date_iso'] = out['value_date']
     nodecpy(out, tx.find('disembursement-channel'),
             'disembursement_channel', {'code': 'code'})
     nodecpy(out, tx.find('provider-org'),

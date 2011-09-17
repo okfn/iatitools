@@ -285,10 +285,8 @@ def run():
                 thetransactions.append(transactiondata)
         i = i +1
         print i
-        # write to CSV every 1000 transactions (there are ~40,000 from DFID and WB)
-        if i == 1000:
-            # create version number
-            thisnumber = thisnumber +1
+        # write to CSV every 1000 transactions)
+        if (i >= 1000):
             # write to CSV
             filename = 'iatidata' + str(thisnumber) + '.csv'
             write_csv(thetransactions, filename)
@@ -297,6 +295,8 @@ def run():
             # reset thetransactions
             del thetransactions[:]
             print "That was page " + str(thisnumber)
+            # create version number
+            thisnumber = thisnumber +1
     # at end of loop, write remaining transactions.
     
     filename = 'iatidata' + str(thisnumber) + '.csv'
