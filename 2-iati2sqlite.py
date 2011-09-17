@@ -149,6 +149,7 @@ def parse_tx(tx):
     nodecpy(out, tx.find('aid-type'),
             'aid_type', {})
 
+
     for date in tx.findall('transaction-date'):
         try:
             # for some (WB) projects, the date is not set even though the tag exists...
@@ -166,6 +167,7 @@ def parse_tx(tx):
            
         except ValueError:
             pass
+
     if not (out.has_key('transaction_date_iso')):
         out['transaction_date_iso'] = out['value_date']
     nodecpy(out, tx.find('disembursement-channel'),
@@ -223,7 +225,7 @@ def parse_activity(activity, out, package_filename):
     #get_date(out, activity, 'start-actual', 'start_actual')
     #get_date(out, activity, 'end-planned', 'end_planned')
     #get_date(out, activity, 'end-actual', 'end_actual')
-       
+
     for date in activity.findall('activity-date'):
         try:
             # for some (WB) projects, the date is not set even though the tag exists...
@@ -234,6 +236,7 @@ def parse_activity(activity, out, package_filename):
                     {'type': 'type', 'iso-date': 'iso-date'})
                  
                 datetype = temp['date_type']
+
                 # Sometimes the date is placed in the @iso-date attribute
                 # Sometimes (DFID only?) the date is placed in the text
                 # Sometimes the date tag is opened but then empty.
@@ -241,28 +244,31 @@ def parse_activity(activity, out, package_filename):
                     if (temp['date_iso-date'] is not None):
                         d = (temp['date_iso-date'])
                         out['date_start_actual'] = d
-                    elif (temp['date'] is not None):
+                    elif (temp.has_key('date')):
                         d = (temp['date'])
                         out['date_start_actual'] = d
                 if (datetype == 'start-planned'):
                     if (temp['date_iso-date'] is not None):
                         d = (temp['date_iso-date'])
                         out['date_start_planned'] = d
-                    elif (temp['date'] is not None):
+                    elif (temp.has_key('date')):
                         d = (temp['date'])
                         out['date_start_planned'] = d
+                
                 if (datetype == 'end-actual'):
                     if (temp['date_iso-date'] is not None):
                         d = (temp['date_iso-date'])
                         out['date_end_actual'] = d
-                    elif (temp['date'] is not None):
+                
+                    elif (temp.has_key('date')):
                         d = (temp['date'])
                         out['date_end_actual'] = d
+                
                 if (datetype == 'end-planned'):
                     if (temp['date_iso-date'] is not None):
                         d = (temp['date_iso-date'])
                         out['date_end_planned'] = d
-                    elif (temp['date'] is not None):
+                    elif (temp.has_key('date')):
                         d = (temp['date'])
                         out['date_end_planned'] = d
             else:
@@ -270,7 +276,6 @@ def parse_activity(activity, out, package_filename):
            
         except ValueError:
             pass
-    
     nodecpy(out, activity.find('contact-info/organisation'),
             'contact_organisation', {})
     nodecpy(out, activity.find('contact-info/mailing-address'),
