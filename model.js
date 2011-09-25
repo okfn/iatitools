@@ -19,7 +19,7 @@
       "type": "value",
       "label": "Year",
       "description": "",
-      "column": "date_start_actual",
+      "column": "transaction_date_iso",
       "datatype": "date"
     },
     "from": {
@@ -48,6 +48,34 @@
         {"constant": "yes", "name": "iati_implementing", "datatype": "constant"}
       ]
     },
+    "actual_start_date": {
+      "type": "value",
+      "label": "Actual Start Date",
+      "description": "",
+      "column": "date_start_actual",
+      "datatype": "date"
+    },
+    "planned_start_date": {
+      "type": "value",
+      "label": "Planned Start Date",
+      "description": "",
+      "column": "date_start_planned",
+      "datatype": "date"
+    },
+    "actual_end_date": {
+      "type": "value",
+      "label": "Actual End Date",
+      "description": "",
+      "column": "date_end_actual",
+      "datatype": "date"
+    },
+    "planned_end_date": {
+      "type": "value",
+      "label": "Planned End Date",
+      "description": "",
+      "column": "date_end_planned",
+      "datatype": "date"
+    },
     "recipient_region": {
       "label": "Recipient Region",
       "type": "classifier",
@@ -56,6 +84,7 @@
       "facet": true,
       "fields": [
         {"column": "activity_recipient_region", "name": "label", "datatype": "string"}
+        {"column": "activity_recipient_country_code", "name": "code", "datatype": "string"}
       ]
     },
     "recipient_country": {
@@ -85,6 +114,7 @@
       "description": "",
       "fields": [
         {"column": "finance_type", "name": "label", "datatype": "string"},
+        {"column": "finance_type_code", "name": "code", "datatype": "string"},
         {"constant": "finance-type", "name": "iati_function", "datatype": "string"}
       ]
     },
@@ -95,6 +125,7 @@
       "description": "",
       "fields": [
         {"column": "transaction_type", "name": "label", "datatype": "string"},
+        {"column": "transaction_type_code", "name": "code", "datatype": "string"},
         {"constant": "transaction-type", "name": "iati_function", "datatype": "string"}
       ]
     },
@@ -123,6 +154,13 @@
       "column": "title",
       "datatype": "string"
     },
+    "description": {
+      "type": "value",
+      "label": "Description",
+      "description": "",
+      "column": "description",
+      "datatype": "string"
+    },
     "status": {
       "type": "value",
       "label": "Status",
@@ -135,6 +173,13 @@
       "label": "Source File",
       "description": "URL of the registry entry",
       "column": "source_file",
+      "datatype": "string"
+    },
+    "activity_website": {
+      "type": "value",
+      "label": "Activity website",
+      "description": "URL of the activity",
+      "column": "activity_website",
       "datatype": "string"
     },
     "tied_status": {
