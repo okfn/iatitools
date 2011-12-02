@@ -132,6 +132,7 @@ Base.metadata.create_all()
             # write that
     # write to CSV
 def run():
+    rownumber = 1
     thisnumber = 0
     # get transactions
     transactions = session.query(Transaction)
@@ -218,7 +219,8 @@ def run():
                 thisectorvalue = (((float(realsectorpercentage))/100)*(transaction.value))
             # write to CSV:
                 transactiondata = {
-                    'transaction_id': transaction.id,
+                    'rowid':rownumber,
+		    'transaction_id': transaction.id,
                     'item_value': thisectorvalue,
                     'item_sector': sector.name,
                     'item_sector_code': sector.code,
@@ -283,6 +285,7 @@ def run():
                     'related_activity_title': related_activity_title                      
                 }
                 thetransactions.append(transactiondata)
+		rownumber = rownumber +1
         i = i +1
         print i
         # write to CSV every 1000 transactions)

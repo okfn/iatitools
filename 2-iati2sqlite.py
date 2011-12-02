@@ -220,7 +220,14 @@ def parse_activity(activity, out, package_filename):
             'extending_org', {'ref': 'ref', 'type': 'type'})
     nodecpy(out, activity.find('participating-org[@role="Implementing"]'),
             'implementing_org', {'ref': 'ref', 'type': 'type'})
-    
+   
+    nodecpy(out, activity.find('participating-org[@role="funding"]'),
+            'funding_org', {'ref': 'ref', 'type': 'type'})
+    nodecpy(out, activity.find('participating-org[@role="extending"]'),
+            'extending_org', {'ref': 'ref', 'type': 'type'})
+    nodecpy(out, activity.find('participating-org[@role="implementing"]'),
+            'implementing_org', {'ref': 'ref', 'type': 'type'})
+ 
     #get_date(out, activity, 'start-planned', 'start_planned')
     #get_date(out, activity, 'start-actual', 'start_actual')
     #get_date(out, activity, 'end-planned', 'end_planned')

@@ -1,0 +1,310 @@
+{
+  "sector": {
+    "description": null,
+    "taxonomy": "sector",
+    "label": "Sector",
+    "fields": [
+      {
+        "column": "item_sector",
+        "datatype": "string",
+        "name": "label"
+      },
+      {
+        "column": "item_sector_code",
+        "datatype": "id",
+        "name": "name"
+      }
+    ],
+    "type": "classifier",
+    "dimension": "sector"
+  },
+  "source_file": {
+    "description": "URL of the registry entry",
+    "datatype": "string",
+    "label": "Source File",
+    "column": "source_file",
+    "type": "value",
+    "dimension": "source_file"
+  },
+  "rowid": {
+    "description": null,
+    "datatype": "string",
+    "label": "Status",
+    "column": "rowid",
+    "key": true,
+    "type": "value",
+    "dimension": "rowid"
+  },
+  "tied_status": {
+    "description": null,
+    "datatype": "string",
+    "label": "Tied Status",
+    "column": "tied_status",
+    "type": "value",
+    "dimension": "tied_status"
+  },
+  "actual_start_date": {
+    "description": null,
+    "datatype": "string",
+    "column": "date_start_actual",
+    "label": "Actual Start Date",
+    "default": null,
+    "type": "value",
+    "dimension": "actual_start_date"
+  },
+  "from": {
+    "description": null,
+    "fields": [
+      {
+        "column": "activity_funding_org",
+        "datatype": "string",
+        "default_value": "Unknown",
+        "name": "label"
+      },
+      {
+        "column": "activity_funding_org",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      },
+      {
+        "column": "activity_funding_org_type",
+        "datatype": "string",
+        "name": "type"
+      },
+      {
+        "column": "activity_funding_org_ref",
+        "datatype": "string",
+        "name": "ref"
+      }
+    ],
+    "label": "Funding Organisation",
+    "facet": true,
+    "type": "entity",
+    "dimension": "from"
+  },
+  "title": {
+    "description": null,
+    "datatype": "string",
+    "label": "Title",
+    "column": "title",
+    "type": "value",
+    "dimension": "title"
+  },
+  "actual_end_date": {
+    "description": null,
+    "datatype": "string",
+    "column": "date_end_actual",
+    "label": "Actual End Date",
+    "default": null,
+    "type": "value",
+    "dimension": "actual_end_date"
+  },
+  "to": {
+    "description": null,
+    "default": "unknown",
+    "fields": [
+      {
+        "column": "activity_implementing_org",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      },
+      {
+        "column": "activity_implementing_org",
+        "datatype": "string",
+        "default_value": "Unknown",
+        "name": "label"
+      },
+      {
+        "column": "activity_implementing_org_ref",
+        "datatype": "string",
+        "name": "ref"
+      },
+      {
+        "column": "activity_implementing_org_type",
+        "datatype": "string",
+        "name": "type"
+      }
+    ],
+    "label": "Implementing Organisation",
+    "facet": true,
+    "type": "entity",
+    "dimension": "to"
+  },
+  "status": {
+    "description": null,
+    "datatype": "string",
+    "label": "Status",
+    "column": "status",
+    "type": "value",
+    "dimension": "status"
+  },
+  "description": {
+    "description": null,
+    "datatype": "string",
+    "label": "Description",
+    "column": "description",
+    "type": "value",
+    "dimension": "description"
+  },
+  "planned_start_date": {
+    "description": null,
+    "datatype": "string",
+    "column": "date_start_planned",
+    "label": "Planned Start Date",
+    "default": null,
+    "type": "value",
+    "dimension": "planned_start_date"
+  },
+  "aid_type": {
+    "description": null,
+    "taxonomy": "iati-aid-type",
+    "label": "Aid Type",
+    "facet": true,
+    "fields": [
+      {
+        "column": "aid_type",
+        "datatype": "string",
+        "name": "label"
+      },
+      {
+        "column": "aid_type",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      }
+    ],
+    "type": "classifier",
+    "dimension": "aid_type"
+  },
+  "planned_end_date": {
+    "description": null,
+    "datatype": "string",
+    "column": "date_end_planned",
+    "label": "Planned End Date",
+    "default": null,
+    "type": "value",
+    "dimension": "planned_end_date"
+  },
+  "recipient_region": {
+    "description": null,
+    "datatype": "string",
+    "label": "Recipient Region",
+    "column": "activity_recipient_region",
+    "type": "value",
+    "dimension": "recipient_region"
+  },
+  "finance_type": {
+    "description": null,
+    "default": null,
+    "taxonomy": "iati-finance-type",
+    "label": "Finance Type",
+    "fields": [
+      {
+        "column": "finance_type",
+        "datatype": "string",
+        "name": "label"
+      },
+      {
+        "column": "finance_type_code",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      }
+    ],
+    "type": "classifier",
+    "dimension": "finance_type"
+  },
+  "recipient_country": {
+    "description": null,
+    "taxonomy": "iati-country",
+    "label": "Recipient Country",
+    "facet": true,
+    "fields": [
+      {
+        "column": "activity_recipient_country",
+        "datatype": "string",
+        "name": "label"
+      },
+      {
+        "column": "activity_recipient_country_code",
+        "datatype": "id",
+        "name": "name"
+      }
+    ],
+    "type": "classifier",
+    "dimension": "recipient_country"
+  },
+  "transaction_type": {
+    "description": null,
+    "taxonomy": "iati-tx-type",
+    "label": "Transaction Type",
+    "fields": [
+      {
+        "column": "transaction_type",
+        "datatype": "string",
+        "name": "label"
+      },
+      {
+        "column": "transaction_type_code",
+        "datatype": "id",
+        "name": "name"
+      }
+    ],
+    "type": "classifier",
+    "dimension": "transaction_type"
+  },
+  "amount": {
+    "description": null,
+    "datatype": "float",
+    "label": "Amount",
+    "column": "item_value",
+    "type": "value",
+    "dimension": "amount"
+  },
+  "flow_type": {
+    "description": null,
+    "taxonomy": "iati-flow-type",
+    "label": "Flow Type",
+    "fields": [
+      {
+        "column": "flow_type",
+        "datatype": "string",
+        "name": "label"
+      },
+      {
+        "column": "flow_type_code",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      }
+    ],
+    "type": "classifier",
+    "dimension": "flow_type"
+  },
+  "time": {
+    "description": null,
+    "datatype": "date",
+    "label": "Year",
+    "column": "transaction_date_iso",
+    "type": "value",
+    "dimension": "time"
+  },
+  "activity_website": {
+    "description": "URL of the activity",
+    "datatype": "string",
+    "label": "Activity website",
+    "column": "activity_website",
+    "type": "value",
+    "dimension": "activity_website"
+  },
+  "identifier": {
+    "description": null,
+    "datatype": "string",
+    "label": "IATI Identifier",
+    "column": "iati_identifier",
+    "type": "value",
+    "dimension": "identifier"
+  }
+}

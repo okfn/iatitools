@@ -1,0 +1,52 @@
+[
+  {
+    "name": "default",
+    "label": "Recipient Country",
+    "cuts": {
+      "transaction_type": "d"
+    },
+    "drilldown": "recipient_country",
+    "entity": "dataset",
+    "dimension": "dataset"
+  },
+  {
+    "name": "default",
+    "label": "Donor",
+    "cuts": {
+      "transaction_type": "d"
+    },
+    "drilldown": "from",
+    "entity": "dimension",
+    "dimension": "recipient_country"
+  },
+  {
+    "name": "sector",
+    "label": "Sector",
+    "cuts": {
+      "transaction_type": "d"
+    },
+    "drilldown": "sector",
+    "entity": "dataset",
+    "dimension": "dataset"
+  },
+  {
+    "name": "donor",
+    "label": "Funding organisation",
+    "cuts": {
+      "transaction_type": "d"
+    },
+    "drilldown": "from",
+    "entity": "dataset",
+    "dimension": "dataset"
+  },
+  {
+    "name": "donor",
+    "label": "Sector",
+    "cuts": {
+      "transaction_type": "d"
+    },
+    "drilldown": "sector",
+    "entity": "dimension",
+    "dimension": "from"
+  }
+]
