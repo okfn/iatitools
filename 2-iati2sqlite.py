@@ -147,7 +147,7 @@ def parse_tx(tx):
     nodecpy(out, tx.find('tied-status'),
             'tied_status', {'code': 'code'})
     nodecpy(out, tx.find('aid-type'),
-            'aid_type', {})
+            'aid_type', {'code':'code'})
 
 
     for date in tx.findall('transaction-date'):
@@ -208,9 +208,10 @@ def parse_activity(activity, out, package_filename):
     nodecpy(out, activity.find('default-tied-status'),
             'tied_status', {'code': 'code'})
     nodecpy(out, activity.find('default-aid-type'),
-            'aid_type', {})
+            'aid_type', {'code':'code'})
     nodecpy(out, activity.find('activity-status'),
-            'status', {})
+            'status', {'code':'code'})
+    out['status_code'] = activity.find('activity-status').get('code')
     nodecpy(out, activity.find('legacy-data'),
             'legacy', {'name': 'name', 'value': 'value'})
     
@@ -228,11 +229,6 @@ def parse_activity(activity, out, package_filename):
     nodecpy(out, activity.find('participating-org[@role="implementing"]'),
             'implementing_org', {'ref': 'ref', 'type': 'type'})
  
-    #get_date(out, activity, 'start-planned', 'start_planned')
-    #get_date(out, activity, 'start-actual', 'start_actual')
-    #get_date(out, activity, 'end-planned', 'end_planned')
-    #get_date(out, activity, 'end-actual', 'end_actual')
-
     for date in activity.findall('activity-date'):
         try:
             # for some (WB) projects, the date is not set even though the tag exists...

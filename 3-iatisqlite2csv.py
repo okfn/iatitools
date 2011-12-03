@@ -210,6 +210,7 @@ def run():
             # get sectors
             sectors = session.query(Sector).filter_by(activity_iati_identifier=activity.iati_identifier)
             # will only write a transaction if it is in a sector!
+            minitransaction_id = 1
             for sector in sectors:
                 # Sometimes there are multiple sectors, with 100% each. Partly an import error :(
                 if ((sector.percentage == 100) and ((sectors.count())>0)):
@@ -218,16 +219,22 @@ def run():
                     realsectorpercentage = sector.percentage
                 thisectorvalue = (((float(realsectorpercentage))/100)*(transaction.value))
             # write to CSV:
+                transaction_identifier = transaction.iati_identifier + "-" + transaction.transaction_type_code + "-" + str(transaction.transaction_date_iso) + "-" + str(minitransaction_id)
+                if (transaction.value_date == ''):
+                    transactionvaluedate = transaction.transaction_date_iso
+                else:
+                    transactionvaluedate = transaction.value_date
+                
                 transactiondata = {
-                    'rowid':rownumber,
-		    'transaction_id': transaction.id,
+                    'rowid':transaction_identifier,
+		            'transaction_id': transaction.id,
                     'item_value': thisectorvalue,
                     'item_sector': sector.name,
                     'item_sector_code': sector.code,
                     'item_sector_vocabulary': sector.vocabulary,
                     'activity_id': transaction.activity_id,
                     'iati_identifier': transaction.iati_identifier,
-                    'value_date': transaction.value_date,
+                    'value_date': transactionvaluedate,
                     'currency': thevalue_currency,
                     'description': thedescription,
                     'flow_type': theflow_type,
@@ -285,11 +292,12 @@ def run():
                     'related_activity_title': related_activity_title                      
                 }
                 thetransactions.append(transactiondata)
+                minitransaction_id = minitransaction_id +1
 		rownumber = rownumber +1
         i = i +1
         print i
         # write to CSV every 1000 transactions)
-        if (i >= 1000):
+        if (i >= 50):
             # write to CSV
             filename = 'iatidata' + str(thisnumber) + '.csv'
             write_csv(thetransactions, filename)
