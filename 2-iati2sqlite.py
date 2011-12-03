@@ -120,7 +120,7 @@ class RelatedActivity(Base):
 Base.metadata.create_all()
 
 def nodecpy(out, node, name, attrs={}, convert=unicode):
-    if node is None:
+    if ((node is None) or (node.text is None)):
         return
     if node.text:
         out[name] = convert(node.text)
@@ -242,38 +242,38 @@ def parse_activity(activity, out, package_filename):
                     'date',
                     {'type': 'type', 'iso-date': 'iso-date'})
                  
-                datetype = temp['date_type']
-
+                date_type = date.get('type')
+                date_iso_date = date.get('iso-date')
                 # Sometimes the date is placed in the @iso-date attribute
                 # Sometimes (DFID only?) the date is placed in the text
                 # Sometimes the date tag is opened but then empty.
-                if (datetype == 'start-actual'):
-                    if (temp['date_iso-date'] is not None):
-                        d = (temp['date_iso-date'])
+                if (date_type == 'start-actual'):
+                    if (date_iso_date is not None):
+                        d = (date_iso_date)
                         out['date_start_actual'] = d
                     elif (temp.has_key('date')):
                         d = (temp['date'])
                         out['date_start_actual'] = d
-                if (datetype == 'start-planned'):
-                    if (temp['date_iso-date'] is not None):
-                        d = (temp['date_iso-date'])
+                if (date_type == 'start-planned'):
+                    if (date_iso_date is not None):
+                        d = (date_iso_date)
                         out['date_start_planned'] = d
                     elif (temp.has_key('date')):
                         d = (temp['date'])
                         out['date_start_planned'] = d
                 
-                if (datetype == 'end-actual'):
-                    if (temp['date_iso-date'] is not None):
-                        d = (temp['date_iso-date'])
+                if (date_type == 'end-actual'):
+                    if (date_iso_date is not None):
+                        d = (date_iso_date)
                         out['date_end_actual'] = d
                 
                     elif (temp.has_key('date')):
                         d = (temp['date'])
                         out['date_end_actual'] = d
                 
-                if (datetype == 'end-planned'):
-                    if (temp['date_iso-date'] is not None):
-                        d = (temp['date_iso-date'])
+                if (date_type == 'end-planned'):
+                    if (date_iso_date is not None):
+                        d = (date_iso_date)
                         out['date_end_planned'] = d
                     elif (temp.has_key('date')):
                         d = (temp['date'])
@@ -345,15 +345,17 @@ def parse_activity(activity, out, package_filename):
                 'related_activity',
                 {'type': 'type', 'ref': 'ref'})
             activityiatiid = activity.findtext('iati-identifier')
-            related_activity = {
-                'activity_id': activityiatiid,
-                'reltext': ratemp['related_activity'],
-                'relref': ratemp['related_activity_ref'],
-                'reltype': ratemp['related_activity_type']                    
-            }
-            missingfields(related_activity, RelatedActivity, package_filename)
-            rela = RelatedActivity(**related_activity)
-            session.add(rela)
+            if (ratemp['related_activity']):
+                if ((ratemp is not None) and (ratemp['related_activity'] is not None)):
+                    related_activity = {
+                        'activity_id': activityiatiid,
+                        'reltext': ratemp['related_activity'],
+                        'relref': ratemp['related_activity_ref'],
+                        'reltype': ratemp['related_activity_type']                    
+                        }
+                    missingfields(related_activity, RelatedActivity, package_filename)
+                    rela = RelatedActivity(**related_activity)
+                    session.add(rela)
         except ValueError:
             pass
              
