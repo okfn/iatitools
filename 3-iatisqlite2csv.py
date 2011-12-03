@@ -220,7 +220,14 @@ def run():
                         realsectorpercentage = sector.percentage
                     thisectorvalue = (((float(realsectorpercentage))/100)*(transaction.value))
                     # write to CSV:
-                    transaction_identifier = transaction.iati_identifier + "-" + transaction.transaction_type_code + "-" + str(transaction.transaction_date_iso) + "-" + str(minitransaction_id)
+                    activity_location_identifier = ''
+                    if (activity.recipient_country_code is not None):
+                        activity_location_identifier = activity.recipient_country_code
+                    elif (activity.recipient_region_code is not None):
+                        activity_location_identifier = activity.recipient_region_code
+                    else:
+                        activity_location_identifier = 'x'
+                    transaction_identifier = transaction.iati_identifier + "-" + activity_location_identifier + "-" + transaction.transaction_type_code + "-" + str(transaction.transaction_date_iso) + "-" + str(minitransaction_id)
                     if ((transaction.value_date == '') or (transaction.value_date == None)):
                         transactionvaluedate = transaction.transaction_date_iso
                     else:
@@ -275,7 +282,7 @@ def run():
                         'activity_implementing_org_ref': activity.implementing_org_ref,
                         'activity_implementing_org_type': activity.implementing_org_type,
                         'activity_recipient_region': activity.recipient_region,
-                        'activity_recipient region_code': activity.recipient_region_code,
+                        'activity_recipient_region_code': activity.recipient_region_code,
                         'activity_recipient_country': activity.recipient_country,
                         'activity_recipient_country_code': activity.recipient_country_code,
                         'title':activity.title,

@@ -230,7 +230,8 @@
       {
         "column": "activity_recipient_country_code",
         "datatype": "id",
-        "name": "name"
+        "name": "name",
+        "default_value":"unknown"
       }
     ],
     "type": "classifier",
