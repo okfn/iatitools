@@ -211,27 +211,109 @@ def run():
             sectors = session.query(Sector).filter_by(activity_iati_identifier=activity.iati_identifier)
             # will only write a transaction if it is in a sector!
             minitransaction_id = 1
-            for sector in sectors:
-                # Sometimes there are multiple sectors, with 100% each. Partly an import error :(
-                if ((sector.percentage == 100) and ((sectors.count())>0)):
-                    realsectorpercentage = (sector.percentage/sectors.count())
-                else:
-                    realsectorpercentage = sector.percentage
-                thisectorvalue = (((float(realsectorpercentage))/100)*(transaction.value))
-            # write to CSV:
+            if (sectors.count()>0):
+                for sector in sectors:
+                    # Sometimes there are multiple sectors, with 100% each. Partly an import error :(
+                    if ((sector.percentage == 100) and ((sectors.count())>0)):
+                        realsectorpercentage = (sector.percentage/sectors.count())
+                    else:
+                        realsectorpercentage = sector.percentage
+                    thisectorvalue = (((float(realsectorpercentage))/100)*(transaction.value))
+                    # write to CSV:
+                    transaction_identifier = transaction.iati_identifier + "-" + transaction.transaction_type_code + "-" + str(transaction.transaction_date_iso) + "-" + str(minitransaction_id)
+                    if ((transaction.value_date == '') or (transaction.value_date == None)):
+                        transactionvaluedate = transaction.transaction_date_iso
+                    else:
+                        transactionvaluedate = transaction.value_date
+                        print transaction.value_date
+                    
+                    transactiondata = {
+                        'rowid':transaction_identifier,
+		                'transaction_id': transaction.id,
+                        'item_value': thisectorvalue,
+                        'item_sector': sector.name,
+                        'item_sector_code': sector.code,
+                        'item_sector_vocabulary': sector.vocabulary,
+                        'activity_id': transaction.activity_id,
+                        'iati_identifier': transaction.iati_identifier,
+                        'value_date': transactionvaluedate,
+                        'currency': thevalue_currency,
+                        'description': thedescription,
+                        'flow_type': theflow_type,
+                        'flow_type_code': theflow_type_code,
+                        'aid_type': theaid_type,
+                        'aid_type_code': theaid_type_code,
+                        'finance_type': thefinance_type,
+                        'finance_type_code': thefinance_type_code,
+                        'tied_status_code': thetied_status_code,
+                        'tied_status': thetied_status,
+                        'transaction_type': transaction.transaction_type,
+                        'transaction_type_code': transaction.transaction_type_code,
+                        'provider_org': transaction.provider_org,
+                        'provider_org_ref': transaction.provider_org_ref,
+                        'provider_org_type': transaction.provider_org_type,
+                        'receiver_org': transaction.receiver_org,
+                        'receiver_org_ref': transaction.receiver_org_ref,
+                        'receiver_org_type': transaction.receiver_org_type,
+                        'transaction_description': transaction.description,
+                        'transaction_date': transaction.transaction_date,
+                        'transaction_date_iso': transaction.transaction_date_iso,
+                        'transaction.disbursement_channel_code': transaction.disbursement_channel_code,
+                        'package_id': activity.package_id,
+                        'source_file': activity.source_file,
+                        'activity_lang': activity.activity_lang,
+                        'activity_last_updated': activity.last_updated,
+                        'activity_reporting_org': activity.reporting_org,
+                        'activity_reporting_org_ref': activity.reporting_org_ref,
+                        'activity_reporting_org_type': activity.reporting_org_type,
+                        'activity_funding_org': activity.funding_org,
+                        'activity_funding_org_ref': activity.funding_org_ref,
+                        'activity_funding_org_type': activity.funding_org_type,
+                        'activity_extending_org': activity.extending_org,
+                        'activity_extending_org_ref': activity.extending_org_ref,
+                        'activity_extending_org_type': activity.extending_org_type,
+                        'activity_implementing_org': activity.implementing_org,
+                        'activity_implementing_org_ref': activity.implementing_org_ref,
+                        'activity_implementing_org_type': activity.implementing_org_type,
+                        'activity_recipient_region': activity.recipient_region,
+                        'activity_recipient region_code': activity.recipient_region_code,
+                        'activity_recipient_country': activity.recipient_country,
+                        'activity_recipient_country_code': activity.recipient_country_code,
+                        'title':activity.title,
+                        'date_start_actual': activity.date_start_actual,
+                        'date_start_planned': activity.date_start_planned,
+                        'date_end_actual': activity.date_end_actual,
+                        'date_end_planned': activity.date_end_planned,
+                        'status': activity.status,
+                        'status_code': activity.status_code,
+                        'contact_organisation': activity.contact_organisation,
+                        'contact_telephone': activity.contact_telephone,
+                        'contact_email': activity.contact_email,
+                        'contact_mailing_address': activity.contact_mailing_address,
+                        'activity_website': activity.activity_website,
+                        'related_activity_title': related_activity_title                      
+                    }
+                    thetransactions.append(transactiondata)
+                    minitransaction_id = minitransaction_id +1
+            else:
+                realsectorpercentage = '100'
+                thisectorvalue = (transaction.value)
+                # write to CSV:
                 transaction_identifier = transaction.iati_identifier + "-" + transaction.transaction_type_code + "-" + str(transaction.transaction_date_iso) + "-" + str(minitransaction_id)
-                if (transaction.value_date == ''):
+                # create default value date if one is not provided (based on transaction date)
+                if ((transaction.value_date == '') or (transaction.value_date == None)):
                     transactionvaluedate = transaction.transaction_date_iso
                 else:
                     transactionvaluedate = transaction.value_date
+                    print transaction.value_date
                 
                 transactiondata = {
                     'rowid':transaction_identifier,
-		            'transaction_id': transaction.id,
+	                'transaction_id': transaction.id,
                     'item_value': thisectorvalue,
-                    'item_sector': sector.name,
-                    'item_sector_code': sector.code,
-                    'item_sector_vocabulary': sector.vocabulary,
+                    'item_sector': 'Unknown',
+                    'item_sector_code': 'unknown',
+                    'item_sector_vocabulary': 'unknown',
                     'activity_id': transaction.activity_id,
                     'iati_identifier': transaction.iati_identifier,
                     'value_date': transactionvaluedate,
@@ -293,6 +375,7 @@ def run():
                 }
                 thetransactions.append(transactiondata)
                 minitransaction_id = minitransaction_id +1
+
 		rownumber = rownumber +1
         i = i +1
         print i

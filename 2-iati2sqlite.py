@@ -159,9 +159,15 @@ def parse_tx(tx):
                     'date',
                     {'iso-date': 'iso-date'})
 
-                if (temp['date_iso-date']):
-                    d = (temp['date_iso-date'])
+                date_iso_date = date.get('iso-date')
+
+                if (date_iso_date):
+                    d = (date_iso_date)
                     out['transaction_date_iso'] = d
+                elif (temp.has_key('date')):
+                    d = (temp['date'])
+                    out['transaction_date_iso'] = d
+
             else:
                 print "No date!!"
            
@@ -336,22 +342,15 @@ def parse_activity(activity, out, package_filename):
             
     for ra in activity.findall('related-activity'):
         try:
-            ratemp = {}
-            nodecpy(ratemp, ra,
-                'related_activity',
-                {'type': 'type', 'ref': 'ref'})
             activityiatiid = activity.findtext('iati-identifier')
-            if (ratemp['related_activity']):
-                if ((ratemp is not None) and (ratemp['related_activity'] is not None)):
-                    related_activity = {
-                        'activity_id': activityiatiid,
-                        'reltext': ratemp['related_activity'],
-                        'relref': ratemp['related_activity_ref'],
-                        'reltype': ratemp['related_activity_type']                    
-                        }
-                    missingfields(related_activity, RelatedActivity, package_filename)
-                    rela = RelatedActivity(**related_activity)
-                    session.add(rela)
+            related_activity = {
+                'activity_id': activityiatiid,
+                'relref': ra.get('ref'),
+                'reltype': ra.get('type')                    
+                }
+            missingfields(related_activity, RelatedActivity, package_filename)
+            rela = RelatedActivity(**related_activity)
+            session.add(rela)
         except ValueError:
             pass
              
