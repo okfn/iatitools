@@ -225,7 +225,6 @@ def run():
                         transactionvaluedate = transaction.transaction_date_iso
                     else:
                         transactionvaluedate = transaction.value_date
-                        print transaction.value_date
                     
                     transactiondata = {
                         'rowid':transaction_identifier,
@@ -304,9 +303,7 @@ def run():
                 if ((transaction.value_date == '') or (transaction.value_date == None)):
                     transactionvaluedate = transaction.transaction_date_iso
                 else:
-                    transactionvaluedate = transaction.value_date
-                    print transaction.value_date
-                
+                    transactionvaluedate = transaction.value_date                
                 transactiondata = {
                     'rowid':transaction_identifier,
 	                'transaction_id': transaction.id,
