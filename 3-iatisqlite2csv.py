@@ -380,7 +380,7 @@ def run():
         i = i +1
         print i
         # write to CSV every 1000 transactions)
-        if (i >= 50):
+        if (i >= 1000):
             # write to CSV
             filename = 'iatidata' + str(thisnumber) + '.csv'
             write_csv(thetransactions, filename)
