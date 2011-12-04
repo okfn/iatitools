@@ -234,7 +234,7 @@ def run():
                         activity_location_identifier = activity.recipient_region_code
                     else:
                         activity_location_identifier = 'x'
-                    transaction_identifier = transaction.iati_identifier + "-" + activity_location_identifier + "-" + transaction.transaction_type_code + "-" + str(transaction.transaction_date_iso) + "-" + str(minitransaction_id)
+                    transaction_identifier = transaction.iati_identifier + "-" + activity_location_identifier + "-" + transaction.transaction_type_code + "-" + str(transaction.transaction_date_iso) + "-" + str(rownumber)
                     if ((transaction.value_date == '') or (transaction.value_date == None)):
                         transactionvaluedate = transaction.transaction_date_iso
                     else:
@@ -307,12 +307,12 @@ def run():
                         'related_activity_title': related_activity_title                      
                     }
                     thetransactions.append(transactiondata)
-                    minitransaction_id = minitransaction_id +1
+                    rownumber = rownumber +1
             else:
                 realsectorpercentage = '100'
                 thisectorvalue = (transaction.value)
                 # write to CSV:
-                transaction_identifier = transaction.iati_identifier + "-" + transaction.transaction_type_code + "-" + str(transaction.transaction_date_iso) + "-" + str(minitransaction_id)
+                transaction_identifier = transaction.iati_identifier + "-" + transaction.transaction_type_code + "-" + str(transaction.transaction_date_iso) + "-" + str(rownumber)
                 # create default value date if one is not provided (based on transaction date)
                 if ((transaction.value_date == '') or (transaction.value_date == None)):
                     transactionvaluedate = transaction.transaction_date_iso
@@ -385,9 +385,7 @@ def run():
                     'related_activity_title': related_activity_title                      
                 }
                 thetransactions.append(transactiondata)
-                minitransaction_id = minitransaction_id +1
-
-		rownumber = rownumber +1
+                rownumber = rownumber +1
         i = i +1
         if (i==0) or (i==100) or (i==200) or (i==300) or (i==400) or (i==500) or (i==600) or (i==700) or (i==800) or (i==900) or (i==1000):
             print "Collected " + str(i) + " rows"
