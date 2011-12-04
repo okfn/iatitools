@@ -50,7 +50,7 @@ class Activity(Base):
     aid_type_code = Column(UnicodeText)
     finance_type = Column(UnicodeText)
     finance_type_code = Column(UnicodeText)
-    iati_identifier = Column(UnicodeText)
+    iati_identifier = Column(UnicodeText, index=True)
     title = Column(UnicodeText)
     description = Column(UnicodeText)
     date_start_actual = Column(UnicodeText)
@@ -73,7 +73,7 @@ class Transaction(Base):
     id = Column(Integer, primary_key=True)
     activity_id = Column(UnicodeText)
     value = Column(Float)
-    iati_identifier = Column(UnicodeText)
+    iati_identifier = Column(UnicodeText, index=True)
     value_date = Column(UnicodeText)
     value_currency = Column(UnicodeText)
     transaction_type = Column(UnicodeText)
@@ -101,7 +101,7 @@ class Transaction(Base):
 class Sector(Base):
     __tablename__ = 'sector'
     id = Column(Integer, primary_key=True)   
-    activity_iati_identifier = Column(UnicodeText)
+    activity_iati_identifier = Column(UnicodeText, index=True)
     name = Column(UnicodeText)
     vocabulary = Column(UnicodeText)
     code = Column(UnicodeText)
@@ -110,7 +110,7 @@ class Sector(Base):
 class RelatedActivity(Base):
     __tablename__ = 'relatedactivity'
     id = Column(Integer, primary_key=True)
-    activity_id = Column(UnicodeText)
+    activity_id = Column(UnicodeText, index=True)
     reltext = Column(UnicodeText)
     relref = Column(UnicodeText)
     reltype = Column(UnicodeText)
@@ -132,11 +132,18 @@ Base.metadata.create_all()
             # write that
     # write to CSV
 def run():
+    print ""
+    print "IATI OpenSpending-CSV compiler"
+    print "=============================="
+    print ""
     rownumber = 1
     thisnumber = 0
     # get transactions
     transactions = session.query(Transaction)
-    print transactions.count()
+    print "Found " + str(transactions.count()) + " transactions."
+    print ""
+    print "Processing..."
+    print ""
     i = 0
     for transaction in transactions:
         # get transaction's activity (should only be 1)
@@ -382,28 +389,36 @@ def run():
 
 		rownumber = rownumber +1
         i = i +1
-        print i
+        if (i==0) or (i==100) or (i==200) or (i==300) or (i==400) or (i==500) or (i==600) or (i==700) or (i==800) or (i==900) or (i==1000):
+            print "Collected " + str(i) + " rows"
         # write to CSV every 1000 transactions)
         if (i >= 1000):
             # write to CSV
+            print "Writing to CSV..."
             filename = 'iatidata' + str(thisnumber) + '.csv'
             write_csv(thetransactions, filename)
+            print "Written to CSV file iatidata" + str(thisnumber) + ".csv"
+            print ""
+            print ""    
             # reset counter
             i = 0
             # reset thetransactions
             del thetransactions[:]
-            print "That was page " + str(thisnumber)
             # create version number
             thisnumber = thisnumber +1
     # at end of loop, write remaining transactions.
     
     filename = 'iatidata' + str(thisnumber) + '.csv'
+    print "Writing remaining transactions to CSV..."
     write_csv(thetransactions, filename)
+    print "Written to CSV file iatidata" + str(thisnumber) + ".csv"
+    print ""
+    print "Finished compiling IATI OpenSpending-CSV file"
                 
 def write_csv(transactions, filename):
     fh = open(filename, 'w')
     keys = []
-    print transactions
+    #print transactions
     for transaction in transactions:
         keys.extend(transaction.keys())
     writer = csv.DictWriter(fh, fieldnames=list(set(keys)))

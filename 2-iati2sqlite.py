@@ -52,7 +52,7 @@ class Activity(Base):
     aid_type_code = Column(UnicodeText)
     finance_type = Column(UnicodeText)
     finance_type_code = Column(UnicodeText)
-    iati_identifier = Column(UnicodeText)
+    iati_identifier = Column(UnicodeText, index=True)
     title = Column(UnicodeText)
     description = Column(UnicodeText)
     date_start_actual = Column(UnicodeText)
@@ -75,7 +75,7 @@ class Transaction(Base):
     id = Column(Integer, primary_key=True)
     activity_id = Column(UnicodeText)
     value = Column(Float)
-    iati_identifier = Column(UnicodeText)
+    iati_identifier = Column(UnicodeText, index=True)
     value_date = Column(UnicodeText)
     value_currency = Column(UnicodeText)
     transaction_type = Column(UnicodeText)
@@ -103,7 +103,7 @@ class Transaction(Base):
 class Sector(Base):
     __tablename__ = 'sector'
     id = Column(Integer, primary_key=True)   
-    activity_iati_identifier = Column(UnicodeText)
+    activity_iati_identifier = Column(UnicodeText, index=True)
     name = Column(UnicodeText)
     vocabulary = Column(UnicodeText)
     code = Column(UnicodeText)
@@ -112,7 +112,7 @@ class Sector(Base):
 class RelatedActivity(Base):
     __tablename__ = 'relatedactivity'
     id = Column(Integer, primary_key=True)
-    activity_id = Column(UnicodeText)
+    activity_id = Column(UnicodeText, index=True)
     reltext = Column(UnicodeText)
     relref = Column(UnicodeText)
     reltype = Column(UnicodeText)
@@ -364,7 +364,6 @@ def parse_activity(activity, out, package_filename):
     missingfields(out, Activity, package_filename)
     x = Activity(**out) 
     session.add(x)
-    session.commit()
     return (out)
 
 def missingfields(dict_, obj, package):
@@ -388,6 +387,9 @@ def load_file(file_name, context=None):
     print "Parsing ", file_name
     for activity in doc.findall("iati-activity"):
         out = parse_activity(activity, context.copy(), file_name)
+    print "Writing to database..."
+    session.commit()
+    print "Written to database."
 
 
 def load_package():
