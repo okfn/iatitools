@@ -239,6 +239,18 @@ def run():
                         transactionvaluedate = transaction.transaction_date_iso
                     else:
                         transactionvaluedate = transaction.value_date
+                    activity_recipient_location =''
+                    activity_recipient_location_code =''
+                    
+                    if (activity.recipient_country is not None):
+                        activity_recipient_location = activity.recipient_country
+                    elif (activity.recipient_region is not None):
+                        activity_recipient_location = activity.recipient_region
+                    
+                    if (activity.recipient_country_code is not None):
+                        activity_recipient_location_code = activity.recipient_country_code
+                    elif (activity.recipient_region_code is not None):
+                        activity_recipient_location_code = activity.recipient_region_code
                     
                     transactiondata = {
                         'rowid':transaction_identifier,
@@ -292,6 +304,8 @@ def run():
                         'activity_recipient_region_code': activity.recipient_region_code,
                         'activity_recipient_country': activity.recipient_country,
                         'activity_recipient_country_code': activity.recipient_country_code,
+                        'activity_recipient_location':activity_recipient_location,
+                        'activity_recipient_location_code':activity_recipient_location_code,
                         'title':activity.title,
                         'date_start_actual': activity.date_start_actual,
                         'date_start_planned': activity.date_start_planned,
@@ -318,6 +332,19 @@ def run():
                     transactionvaluedate = transaction.transaction_date_iso
                 else:
                     transactionvaluedate = transaction.value_date                
+                activity_recipient_location =''
+                activity_recipient_location_code =''
+                
+                if (activity.recipient_country is not None):
+                    activity_recipient_location = activity.recipient_country
+                elif (activity.recipient_region is not None):
+                    activity_recipient_location = activity.recipient_region
+                
+                if (activity.recipient_country_code is not None):
+                    activity_recipient_location_code = activity.recipient_country_code
+                elif (activity.recipient_region_code is not None):
+                    activity_recipient_location_code = activity.recipient_region_code
+                
                 transactiondata = {
                     'rowid':transaction_identifier,
 	                'transaction_id': transaction.id,
@@ -370,6 +397,8 @@ def run():
                     'activity_recipient region_code': activity.recipient_region_code,
                     'activity_recipient_country': activity.recipient_country,
                     'activity_recipient_country_code': activity.recipient_country_code,
+                    'activity_recipient_location':activity_recipient_location,
+                    'activity_recipient_location_code':activity_recipient_location_code,
                     'title':activity.title,
                     'date_start_actual': activity.date_start_actual,
                     'date_start_planned': activity.date_start_planned,
