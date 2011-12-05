@@ -11,11 +11,31 @@
   },
   {
     "name": "default",
-    "label": "Donor",
+    "label": "Sector",
+    "cuts": {
+      "transaction_type": "d"
+    },
+    "drilldown": "sector",
+    "entity": "dimension",
+    "dimension": "recipient_location"
+  },
+  {
+    "name": "funder",
+    "label": "Funding organisation",
     "cuts": {
       "transaction_type": "d"
     },
     "drilldown": "from",
+    "entity": "dimension",
+    "dimension": "recipient_location"
+  },
+  {
+    "name": "aid_type",
+    "label": "Aid type",
+    "cuts": {
+      "transaction_type": "d"
+    },
+    "drilldown": "aid_type",
     "entity": "dimension",
     "dimension": "recipient_location"
   },
@@ -30,7 +50,7 @@
     "dimension": "dataset"
   },
   {
-    "name": "donor",
+    "name": "funder",
     "label": "Funding organisation",
     "cuts": {
       "transaction_type": "d"
@@ -40,7 +60,17 @@
     "dimension": "dataset"
   },
   {
-    "name": "donor",
+    "name": "default",
+    "label": "Recipient",
+    "cuts": {
+      "transaction_type": "d"
+    },
+    "drilldown": "recipient_location",
+    "entity": "dimension",
+    "dimension": "from"
+  },
+  {
+    "name": "sector",
     "label": "Sector",
     "cuts": {
       "transaction_type": "d"

@@ -1,20 +1,20 @@
 {
   "sector": {
     "description": null,
-    "taxonomy": "sector",
+    "taxonomy": "iati-sector",
     "label": "Sector",
     "fields": [
       {
         "column": "item_sector",
         "datatype": "string",
-        "name": "label",
-        "default_value":"Unknown"
+        "default_value": "Unknown",
+        "name": "label"
       },
       {
         "column": "item_sector_code",
         "datatype": "id",
-        "name": "name",
-        "default_value":"unknown"
+        "default_value": "unknown",
+        "name": "name"
       }
     ],
     "type": "classifier",
@@ -42,13 +42,27 @@
     "type": "classifier",
     "dimension": "recipient_location"
   },
-  "currency": {
-    "description": "Currency the data was provided in",
-    "datatype": "string",
+  "original_currency": {
+    "description": null,
+    "taxonomy": "iati-currency",
     "label": "Original currency",
-    "column": "currency",
+    "facet": true,
+    "fields": [
+      {
+        "column": "currency",
+        "datatype": "string",
+        "default_value": "Unknown",
+        "name": "label"
+      },
+      {
+        "column": "currency",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      }
+    ],
     "type": "classifier",
-    "dimension": "currency"
+    "dimension": "original_currency"
   },
   "source_file": {
     "description": "URL of the registry entry",
@@ -69,18 +83,32 @@
   },
   "tied_status": {
     "description": null,
-    "datatype": "string",
-    "label": "Tied Status",
-    "column": "tied_status",
+    "taxonomy": "iati-tied-status",
+    "label": "Tied aid status",
+    "facet": true,
+    "fields": [
+      {
+        "column": "tied_status",
+        "datatype": "string",
+        "default_value": "Unknown",
+        "name": "label"
+      },
+      {
+        "column": "tied_status_code",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      }
+    ],
     "type": "classifier",
     "dimension": "tied_status"
   },
   "actual_start_date": {
+    "default": null,
     "description": null,
     "datatype": "string",
-    "column": "date_start_actual",
     "label": "Actual Start Date",
-    "default": null,
+    "column": "date_start_actual",
     "type": "value",
     "dimension": "actual_start_date"
   },
@@ -124,11 +152,11 @@
     "dimension": "title"
   },
   "actual_end_date": {
+    "default": null,
     "description": null,
     "datatype": "string",
-    "column": "date_end_actual",
     "label": "Actual End Date",
-    "default": null,
+    "column": "date_end_actual",
     "type": "value",
     "dimension": "actual_end_date"
   },
@@ -174,9 +202,23 @@
   },
   "status": {
     "description": null,
-    "datatype": "string",
-    "label": "Status",
-    "column": "status",
+    "taxonomy": "iati-status",
+    "label": "Activity status",
+    "facet": true,
+    "fields": [
+      {
+        "column": "status",
+        "datatype": "string",
+        "default_value": "Unknown",
+        "name": "label"
+      },
+      {
+        "column": "status_code",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      }
+    ],
     "type": "classifier",
     "dimension": "status"
   },
@@ -189,11 +231,11 @@
     "dimension": "description"
   },
   "planned_start_date": {
+    "default": null,
     "description": null,
     "datatype": "string",
-    "column": "date_start_planned",
     "label": "Planned Start Date",
-    "default": null,
+    "column": "date_start_planned",
     "type": "value",
     "dimension": "planned_start_date"
   },
@@ -210,7 +252,7 @@
         "name": "label"
       },
       {
-        "column": "aid_type",
+        "column": "aid_type_code",
         "datatype": "id",
         "default_value": "unknown",
         "name": "name"
@@ -220,11 +262,11 @@
     "dimension": "aid_type"
   },
   "planned_end_date": {
+    "default": null,
     "description": null,
     "datatype": "string",
-    "column": "date_end_planned",
     "label": "Planned End Date",
-    "default": null,
+    "column": "date_end_planned",
     "type": "value",
     "dimension": "planned_end_date"
   },
@@ -281,7 +323,7 @@
       {
         "column": "activity_recipient_country",
         "datatype": "string",
-        "default_value":"Unknown",
+        "default_value": "Unknown",
         "name": "label"
       },
       {
@@ -360,9 +402,23 @@
   },
   "identifier": {
     "description": null,
-    "datatype": "string",
+    "taxonomy": "iati-identifier",
     "label": "IATI Identifier",
-    "column": "iati_identifier",
+    "facet": true,
+    "fields": [
+      {
+        "column": "iati_identifier",
+        "datatype": "string",
+        "default_value": "Unknown",
+        "name": "label"
+      },
+      {
+        "column": "iati_identifier",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      }
+    ],
     "type": "classifier",
     "dimension": "identifier"
   }
