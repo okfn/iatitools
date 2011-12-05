@@ -189,12 +189,48 @@
   },
   "recipient_region": {
     "description": null,
-    "datatype": "string",
+    "taxonomy": "iati-region",
     "label": "Recipient Region",
-    "column": "activity_recipient_region",
-    "type": "value",
-    "dimension": "recipient_region"
+    "facet": true,
+    "fields": [
+      {
+        "column": "activity_recipient_region",
+        "datatype": "string",
+        "name": "label",
+        "default_value":"Unnown"
+      },
+      {
+        "column": "activity_recipient_region_code",
+        "datatype": "id",
+        "name": "name",
+        "default_value":"unknown"
+      }
+    ],
+    "type": "classifier",
+    "dimension": "recipient_country"
   },
+  "recipient_location": {
+    "description": "Recipient country if it exists, otherwise recipient region",
+    "taxonomy": "iati-location",
+    "label": "Recipient Location",
+    "facet": true,
+    "fields": [
+      {
+        "column": "activity_recipient_location",
+        "datatype": "string",
+        "name": "label",
+        "default_value":"Unnown"
+      },
+      {
+        "column": "activity_recipient_location_code",
+        "datatype": "id",
+        "name": "name",
+        "default_value":"unknown"
+      }
+    ],
+    "type": "classifier",
+    "dimension": "recipient_country"
+  },  
   "finance_type": {
     "description": null,
     "default": null,

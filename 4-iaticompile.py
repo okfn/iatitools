@@ -8,7 +8,7 @@ def run():
     for line in open("csv/iatidata0.csv"):
         fout.write(line)
     # now the rest:    
-    for num in range(1,73):
+    for num in range(1,150):
         print "Processing iatidata"+str(num)+".csv ..."
         f = open("csv/iatidata"+str(num)+".csv")
         f.next() # skip the header
