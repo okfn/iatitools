@@ -18,6 +18,36 @@
     "type": "classifier",
     "dimension": "sector"
   },
+  "recipient_location": {
+    "description": "Recipient country if it exists, otherwise recipient region",
+    "taxonomy": "iati-location",
+    "label": "Recipient Location",
+    "facet": true,
+    "fields": [
+      {
+        "column": "activity_recipient_location",
+        "datatype": "string",
+        "default_value": "Unnown",
+        "name": "label"
+      },
+      {
+        "column": "activity_recipient_location_code",
+        "datatype": "id",
+        "default_value": "unknown",
+        "name": "name"
+      }
+    ],
+    "type": "classifier",
+    "dimension": "recipient_location"
+  },
+  "currency": {
+    "description": "Currency the data was provided in",
+    "datatype": "string",
+    "label": "Original currency",
+    "column": "currency",
+    "type": "value",
+    "dimension": "currency"
+  },
   "source_file": {
     "description": "URL of the registry entry",
     "datatype": "string",
@@ -132,6 +162,14 @@
     "type": "entity",
     "dimension": "to"
   },
+  "original_amount": {
+    "description": "Original amount, in the original currency",
+    "datatype": "float",
+    "label": "Original amount",
+    "column": "item_value",
+    "type": "value",
+    "dimension": "original_amount"
+  },
   "status": {
     "description": null,
     "datatype": "string",
@@ -196,41 +234,19 @@
       {
         "column": "activity_recipient_region",
         "datatype": "string",
-        "name": "label",
-        "default_value":"Unnown"
+        "default_value": "Unnown",
+        "name": "label"
       },
       {
         "column": "activity_recipient_region_code",
         "datatype": "id",
-        "name": "name",
-        "default_value":"unknown"
+        "default_value": "unknown",
+        "name": "name"
       }
     ],
     "type": "classifier",
-    "dimension": "recipient_country"
+    "dimension": "recipient_region"
   },
-  "recipient_location": {
-    "description": "Recipient country if it exists, otherwise recipient region",
-    "taxonomy": "iati-location",
-    "label": "Recipient Location",
-    "facet": true,
-    "fields": [
-      {
-        "column": "activity_recipient_location",
-        "datatype": "string",
-        "name": "label",
-        "default_value":"Unnown"
-      },
-      {
-        "column": "activity_recipient_location_code",
-        "datatype": "id",
-        "name": "name",
-        "default_value":"unknown"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "recipient_country"
-  },  
   "finance_type": {
     "description": null,
     "default": null,
@@ -261,13 +277,14 @@
       {
         "column": "activity_recipient_country",
         "datatype": "string",
+        "default_value":"unknown",
         "name": "label"
       },
       {
         "column": "activity_recipient_country_code",
         "datatype": "id",
-        "name": "name",
-        "default_value":"unknown"
+        "default_value": "unknown",
+        "name": "name"
       }
     ],
     "type": "classifier",
@@ -296,7 +313,7 @@
     "description": null,
     "datatype": "float",
     "label": "Amount",
-    "column": "item_value",
+    "column": "amount_USD",
     "type": "value",
     "dimension": "amount"
   },
