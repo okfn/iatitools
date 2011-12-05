@@ -16,7 +16,15 @@ def run():
     fieldnames.append("amount_USD")
     out = csv.DictWriter(outputfile, fieldnames=fieldnames)
     out.writerow(dict((fn,fn) for fn in fieldnames))
+    counter = 0
+    whichrow = 0
     for line in sourcefile:
+         if (counter == 1000):
+            whichrow = whichrow +1000
+            print whichrow
+            counter = 0
+         else:
+            counter = counter+1
          line["currency"] = (string.upper(line["currency"]))
          currency=line["currency"]
          amount_USD = 0
@@ -33,7 +41,7 @@ def run():
          line["amount_USD"] =amount_USD	
          out.writerow(line)
 
-    sourcefile.close()
+    f.close()
 
 if __name__ == '__main__':
     import sys
