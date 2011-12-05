@@ -29,7 +29,7 @@
       {
         "column": "activity_recipient_location",
         "datatype": "string",
-        "default_value": "Unnown",
+        "default_value": "Unknown",
         "name": "label"
       },
       {
@@ -206,6 +206,7 @@
       {
         "column": "aid_type",
         "datatype": "string",
+        "default_value": "Unknown",
         "name": "label"
       },
       {
@@ -236,7 +237,7 @@
       {
         "column": "activity_recipient_region",
         "datatype": "string",
-        "default_value": "Unnown",
+        "default_value": "Unknown",
         "name": "label"
       },
       {
@@ -258,6 +259,7 @@
       {
         "column": "finance_type",
         "datatype": "string",
+        "default_value": "Unknown",
         "name": "label"
       },
       {
@@ -279,7 +281,7 @@
       {
         "column": "activity_recipient_country",
         "datatype": "string",
-        "default_value":"unknown",
+        "default_value":"Unknown",
         "name": "label"
       },
       {
@@ -327,6 +329,7 @@
       {
         "column": "flow_type",
         "datatype": "string",
+        "default_value": "Unknown",
         "name": "label"
       },
       {
