@@ -47,7 +47,7 @@
     "datatype": "string",
     "label": "Original currency",
     "column": "currency",
-    "type": "value",
+    "type": "classifier",
     "dimension": "currency"
   },
   "source_file": {
@@ -59,9 +59,9 @@
     "dimension": "source_file"
   },
   "rowid": {
-    "description": null,
+    "description": "Transaction identifier (constructed)",
     "datatype": "string",
-    "label": "Status",
+    "label": "Transaction ID",
     "column": "rowid",
     "key": true,
     "type": "value",
@@ -72,7 +72,7 @@
     "datatype": "string",
     "label": "Tied Status",
     "column": "tied_status",
-    "type": "value",
+    "type": "classifier",
     "dimension": "tied_status"
   },
   "actual_start_date": {
@@ -177,7 +177,7 @@
     "datatype": "string",
     "label": "Status",
     "column": "status",
-    "type": "value",
+    "type": "classifier",
     "dimension": "status"
   },
   "description": {
@@ -360,7 +360,7 @@
     "datatype": "string",
     "label": "IATI Identifier",
     "column": "iati_identifier",
-    "type": "value",
+    "type": "classifier",
     "dimension": "identifier"
   }
 }
