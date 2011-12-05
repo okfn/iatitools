@@ -7,12 +7,14 @@
       {
         "column": "item_sector",
         "datatype": "string",
-        "name": "label"
+        "name": "label",
+        "default_value":"Unknown"
       },
       {
         "column": "item_sector_code",
         "datatype": "id",
-        "name": "name"
+        "name": "name",
+        "default_value":"unknown"
       }
     ],
     "type": "classifier",
