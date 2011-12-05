@@ -1,11 +1,11 @@
 [
   {
     "name": "default",
-    "label": "Recipient Country",
+    "label": "Recipien",
     "cuts": {
       "transaction_type": "d"
     },
-    "drilldown": "recipient_country",
+    "drilldown": "recipient_location",
     "entity": "dataset",
     "dimension": "dataset"
   },
@@ -17,7 +17,7 @@
     },
     "drilldown": "from",
     "entity": "dimension",
-    "dimension": "recipient_country"
+    "dimension": "recipient_location"
   },
   {
     "name": "sector",
