@@ -1,4 +1,5 @@
 packages
 pyenv
-iatidata_new.sqlite
+*.sqlite
 log*
+*.csv

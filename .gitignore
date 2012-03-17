@@ -3,3 +3,7 @@ pyenv
 *.sqlite
 log*
 *.csv
+*.py~
+*.rst~
+.gitignore~
+*~
