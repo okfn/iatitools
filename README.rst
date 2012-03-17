@@ -18,6 +18,7 @@ Installation
 1. Clone the repository
 
 	git clone https://github.com/okfn/iatitools.git
+
 	cd iatitools
 
 2. Create a virtualenv:
@@ -29,6 +30,22 @@ Installation
 	source ./pyenv/bin/activate
 
 4. Install the dependencies
+
+	pip install -r requirements.txt
+
+5. Run each of the scripts
+
+	python 1-iatidownload.py
+
+	python 2-iati2sqlite.py
+
+	python 3-iatisqlite2csv.py
+
+	python 4-iaticurrencyconvert.py
+
+6. You will end up with this file in OpenSpending-CSV format:
+
+	IATIdata_currency_standardised.csv
 
 Troubleshooting install
 -----------------------
