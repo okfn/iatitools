@@ -1,5 +1,0 @@
-packages
-pyenv
-*.sqlite
-log*
-*.csv
