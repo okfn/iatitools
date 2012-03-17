@@ -35,7 +35,6 @@ Troubleshooting install
 
 1. Make sure you've installed ``python-dev``
 2. If you have problems installing lxml, make sure you've installed ``libxml2-dev`` and ``libxslt-dev``
-3. If you have problems with sqlite, make sure you've installed ``sqlite3``
 
 Scripts
 -------

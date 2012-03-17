@@ -418,9 +418,9 @@ def run():
         i = i +1
 	if ((i % 100) == 0):
             print "Collected " + str(i) + " rows"
-        # write to CSV every 100,000 transactions)
+        # write to CSV every 1000 transactions)
 	"""
-        if (i >= 100,000):
+        if (i >= 1000):
             # write to CSV
             print "Writing to CSV..."
             filename = 'iatidata' + str(thisnumber) + '.csv'

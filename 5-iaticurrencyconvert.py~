@@ -7,7 +7,7 @@ def run():
     print "Convert currencies in your IATI OpenSpending-CSV data file"
     print ""
     print "Starting up..."
-    f=open("compiled/IATIdata_05122011.csv","r")
+    f=open("iatidata.csv","r")
     sourcefile=csv.DictReader(f)
     outputfile=open("IATIdata_currency_standardised.csv","a")
     # first file:
