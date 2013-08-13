@@ -125,7 +125,10 @@ def nodecpy(out, node, name, attrs={}, convert=unicode):
     if node.text:
         out[name] = convert(node.text)
     for k, v in attrs.items():
-        out[name + '_' + v] = node.get(k)
+    	try:
+            out[name + '_' + v] = node.get(k)
+        except AttributeError:
+            pass
 
 def parse_tx(tx):
     out = {}
@@ -133,7 +136,10 @@ def parse_tx(tx):
     if value is not None:
         out['value_date'] = value.get('value-date')
         out['value_currency'] = value.get('currency')
-        out['value'] = float(value.text)
+        try:
+            out['value'] = float(value.text)
+        except TypeError:
+            pass
     if tx.findtext('description'):
         out['description'] = tx.findtext('description')
     nodecpy(out, tx.find('activity-type'),
@@ -194,7 +200,6 @@ def parse_activity(activity, out, package_filename):
     nodecpy(out, activity.find('reporting-org'),
             'reporting_org', {'ref': 'ref', 
                               'type': 'type'})
-    
     out['iati_identifier'] = activity.findtext('iati-identifier')
     if activity.findtext('activity-website'):
         out['activity_website'] = activity.findtext('activity-website')
@@ -228,14 +233,18 @@ def parse_activity(activity, out, package_filename):
             'extending_org', {'ref': 'ref', 'type': 'type'})
     nodecpy(out, activity.find('participating-org[@role="Implementing"]'),
             'implementing_org', {'ref': 'ref', 'type': 'type'})
-   
     nodecpy(out, activity.find('participating-org[@role="funding"]'),
             'funding_org', {'ref': 'ref', 'type': 'type'})
     nodecpy(out, activity.find('participating-org[@role="extending"]'),
             'extending_org', {'ref': 'ref', 'type': 'type'})
     nodecpy(out, activity.find('participating-org[@role="implementing"]'),
             'implementing_org', {'ref': 'ref', 'type': 'type'})
- 
+    try:
+        if (activity.find('reporting-org').get('ref')=='SE-6'):
+            out['implementing_org'] = activity.find('participating-org[@role="Accountable"]').get('ref')
+            out['implementing_org_ref'] = activity.find('participating-org[@role="Accountable"]').get('ref')
+    except:
+        pass
     for date in activity.findall('activity-date'):
         try:
             # for some (WB) projects, the date is not set even though the tag exists...
@@ -316,18 +325,41 @@ def parse_activity(activity, out, package_filename):
             nodecpy(temp, sector,
                 'sector',
                 {'vocabulary': 'vocabulary', 'percentage': 'percentage', 'code': 'code'})
-             
-            vocab = temp['sector_vocabulary'] if temp['sector_vocabulary'] else 'DAC'
+            try: 
+                vocab = temp['sector_vocabulary'] if temp['sector_vocabulary'] else 'DAC'
+            except:
+                try:
+                    vocab = sector.get('vocabulary')
+                except:
+                    vocab = 'DAC'
             activityiatiid = activity.findtext('iati-identifier')
-            getpercentage = temp['sector_percentage']
-            percentage = 0
-            # if getpercentage doesn't exist, or it's blank, or it's None, do this:
-            if (not(getpercentage) or (getpercentage == '') or (getpercentage is None)):
+            try:
+                getpercentage = temp['sector_percentage']
+                percentage = 0
+                # if getpercentage doesn't exist, or it's blank, or it's None, do this:
+                if (not(getpercentage) or (getpercentage == '') or (getpercentage is None)):
+                    percentage = 100
+                else:
+                # if getpercentage exists, it's not blank, and it's not none
+                    percentage = getpercentage            
+            except:
+                try:
+                    percentage = sector.get('percentage')
+                except:
+                    percentage = 100
+            if (percentage == None):
                 percentage = 100
-            else:
-            # if getpercentage exists, it's not blank, and it's not none
-                percentage = getpercentage
-                
+            try:
+                temp['sector']
+            except:
+                temp['sector'] = ''
+            try:
+                temp['sector_code']
+            except:
+                try:
+                    temp['sector_code'] = sector.get('code')
+                except:
+                    temp['sector_code'] = ''
             tsector = {
                 'activity_iati_identifier': activityiatiid,
                 'name': temp['sector'],
@@ -417,6 +449,7 @@ def load_package():
             print 'Failed:', e
             logtext = "Error in file: " + infile + " - " + str(e) + "\n"
             log(logtext)
+	    pass
 
 
 if __name__ == '__main__':
