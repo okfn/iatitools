@@ -79,8 +79,8 @@ def parse_tx(tx):
 
     if not (out.has_key('transaction_date_iso')):
         out['transaction_date_iso'] = out['value_date']
-    nodecpy(out, tx.find('disembursement-channel'),
-            'disembursement_channel', {'code': 'code'})
+    nodecpy(out, tx.find('disbursement-channel'),
+            'disbursement_channel', {'code': 'code'})
     nodecpy(out, tx.find('provider-org'),
             'provider_org', {'ref': 'ref'})
     nodecpy(out, tx.find('receiver-org'),
