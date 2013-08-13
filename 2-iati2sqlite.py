@@ -112,7 +112,11 @@ def parse_activity(activity, out, package_filename):
       ('legacy-data', 'legacy', {'name', 'value'}),
       ('participating-org[@role="Funding"]', 'funding_org', {'ref', 'type'}),
       ('participating-org[@role="Extending"]', 'extending_org', {'ref', 'type'}),
-      ('participating-org[@role="Implementing"]', 'implementing_org', {'ref', 'type'})
+      ('participating-org[@role="Implementing"]', 'implementing_org', {'ref', 'type'}),
+      ('contact-info/organisation', 'contact_organisation', {}),
+      ('contact-info/mailing-address', 'contact_mailing_address', {}),
+      ('contact-info/telephone', 'contact_telephone', {}),
+      ('contact-info/email', 'contact_email', {})
             ]
 
     for field in fields:
@@ -171,14 +175,6 @@ def parse_activity(activity, out, package_filename):
            
         except ValueError:
             pass
-    nodecpy(out, activity.find('contact-info/organisation'),
-            'contact_organisation', {})
-    nodecpy(out, activity.find('contact-info/mailing-address'),
-            'contact_mailing_address', {})
-    nodecpy(out, activity.find('contact-info/telephone'),
-            'contact_telephone', {})
-    nodecpy(out, activity.find('contact-info/email'),
-            'contact_email', {})
     
     for sector in activity.findall('sector'):
         try:
