@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from lxml import etree
 from pprint import pprint
 import csv
