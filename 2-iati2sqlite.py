@@ -87,10 +87,18 @@ def parse_tx(tx):
             'receiver_org', {'ref': 'ref'})
     return out
 
-def get_date(out, node, name, key):
-    de = node.find('activity-date[@type="%s"]' % name)
-    if de is not None:
-        out[key] = de.get('iso-date')
+def underscore(value):
+    return re.sub("-","_",value)
+
+def get_date(out, date, type=None):
+    if not type:
+        type = underscore(date.get('type'))
+    if not type:
+        return
+    if date is not None:
+        out["date_"+type] = date.get('iso-date')
+    if (not date.get('iso-date')) and date.text:
+        out["date_"+type] = date.text
 
 def parse_activity(activity, out, package_filename):
     out['default_currency'] = activity.get("default-currency")
@@ -126,55 +134,7 @@ def parse_activity(activity, out, package_filename):
         nodecpy(out, activity.find(xpath), fieldname, attribs)
 
     for date in activity.findall('activity-date'):
-        try:
-            # for some (WB) projects, the date is not set even though the tag exists...
-            if (date is not None):
-                temp = {}
-                nodecpy(temp, date,
-                    'date',
-                    {'type': 'type', 'iso-date': 'iso-date'})
-                 
-                date_type = date.get('type')
-                date_iso_date = date.get('iso-date')
-                # Sometimes the date is placed in the @iso-date attribute
-                # Sometimes (DFID only?) the date is placed in the text
-                # Sometimes the date tag is opened but then empty.
-                if (date_type == 'start-actual'):
-                    if (date_iso_date is not None):
-                        d = (date_iso_date)
-                        out['date_start_actual'] = d
-                    elif (temp.has_key('date')):
-                        d = (temp['date'])
-                        out['date_start_actual'] = d
-                if (date_type == 'start-planned'):
-                    if (date_iso_date is not None):
-                        d = (date_iso_date)
-                        out['date_start_planned'] = d
-                    elif (temp.has_key('date')):
-                        d = (temp['date'])
-                        out['date_start_planned'] = d
-                
-                if (date_type == 'end-actual'):
-                    if (date_iso_date is not None):
-                        d = (date_iso_date)
-                        out['date_end_actual'] = d
-                
-                    elif (temp.has_key('date')):
-                        d = (temp['date'])
-                        out['date_end_actual'] = d
-                
-                if (date_type == 'end-planned'):
-                    if (date_iso_date is not None):
-                        d = (date_iso_date)
-                        out['date_end_planned'] = d
-                    elif (temp.has_key('date')):
-                        d = (temp['date'])
-                        out['date_end_planned'] = d
-            else:
-                print "No date!!"
-           
-        except ValueError:
-            pass
+        get_date(out,date)
     
     for sector in activity.findall('sector'):
         try:
