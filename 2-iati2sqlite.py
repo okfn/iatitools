@@ -94,17 +94,13 @@ def get_date(out, node, name, key):
 
 def parse_activity(activity, out, package_filename):
     out['default_currency'] = activity.get("default-currency")
-    nodecpy(out, activity.find('reporting-org'),
-            'reporting_org', {'ref': 'ref', 
-                              'type': 'type'})
-    out['iati_identifier'] = activity.findtext('iati-identifier')
-    if activity.findtext('activity-website'):
-        out['activity_website'] = activity.findtext('activity-website')
-    out['title'] = activity.findtext('title')
-    if activity.findtext('description'):
-        out['description'] = activity.findtext('description')
 
     fields = [
+      ('reporting-org', 'reporting_org', {'ref', 'type'}),
+      ('iati-identifier', 'iati_identifier', {}),
+      ('title', 'title', {}),
+      ('description', 'description', {}),
+      ('activity-website', 'activity_website', {}),
       ('recipient-region', 'recipient_region', {'code'}),
       ('recipient-country', 'recipient_country', {'code'}),
       ('collaboration-type', 'collaboration_type', {'code'}),
