@@ -80,7 +80,8 @@ class Transaction(db.models):
     tied_status_code = Column(UnicodeText)
     disbursement_channel_code = Column(UnicodeText)
 
-# Put everything into sectors table, and link back to activity. This will create a new unique sector per activity, which is OK for then importing back into OS but obviously you would probably want an activities_sectors table to handle a relationship between unique activities and unique sectors.
+# Put everything into sectors table, and link back to specific activity. 
+# Might want to normalise this in future.
  
 class Sector(db.models):
     __tablename__ = 'sector'
