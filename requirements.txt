@@ -1,2 +1,6 @@
 ckan==1.8
 ckanclient==0.10
+SQLAlchemy==0.7.6
+distribute==0.6.19
+lxml==2.3.3
+wsgiref==0.1.2
