@@ -195,21 +195,6 @@ def parse_activity(activity, out, package_filename):
     nodecpy(out, activity.find('contact-info/email'),
             'contact_email', {})
     
-    # SLIGHTLY HACKY:
-    """snd_level = 0
-    for policy_marker in activity.findall('policy-marker'):
-        try:
-            sign = int(policy_marker.get('significance'))
-            if sign == 0:
-                continue
-            if sign == 2:
-                snd_level += 1
-            nodecpy(out, policy_marker,
-                'policy_marker_' + policy_marker.get('code'), 
-                {'vocabulary': 'vocabulary', 'significance': 'significance'})
-        except ValueError:
-            pass
-    """
     for sector in activity.findall('sector'):
         try:
             temp = {}
