@@ -1,0 +1,2 @@
+ckan==1.8
+ckanclient==0.10
