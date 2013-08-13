@@ -9,6 +9,7 @@ db.models.metadata.create_all()
 
 from datetime import date, datetime
 import os
+import re
 
 def nodecpy(out, node, name, attrs={}, convert=unicode):
     if ((node is None) or (node.text is None)):
@@ -21,16 +22,20 @@ def nodecpy(out, node, name, attrs={}, convert=unicode):
         except AttributeError:
             pass
 
+def getValue(value):
+    try:
+        return float(value)
+    except ValueError:
+        nicevalue = re.sub(",","",value)
+        return float(nicevalue)
+
 def parse_tx(tx):
     out = {}
     value = tx.find('value')
     if value is not None:
         out['value_date'] = value.get('value-date')
         out['value_currency'] = value.get('currency')
-        try:
-            out['value'] = float(value.text)
-        except TypeError:
-            pass
+        out['value'] = getValue(value.text)
     if tx.findtext('description'):
         out['description'] = tx.findtext('description')
     nodecpy(out, tx.find('activity-type'),
@@ -114,7 +119,6 @@ def parse_activity(activity, out, package_filename):
             'aid_type', {'code':'code'})
     nodecpy(out, activity.find('activity-status'),
             'status', {'code':'code'})
-    out['status_code'] = activity.find('activity-status').get('code')
     nodecpy(out, activity.find('legacy-data'),
             'legacy', {'name': 'name', 'value': 'value'})
     
