@@ -51,7 +51,6 @@ def parse_tx(tx):
     nodecpy(out, tx.find('aid-type'),
             'aid_type', {'code':'code'})
 
-
     for date in tx.findall('transaction-date'):
         try:
             # for some (WB) projects, the date is not set even though the tag exists...
