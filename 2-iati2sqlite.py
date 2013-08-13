@@ -299,9 +299,7 @@ def load_file(file_name, context=None):
     db.session.commit()
     print "Written to database."
 
-
 def load_package():
-
     if (len(sys.argv) > 1):
         packagedir = sys.argv[1]
     else:
@@ -326,7 +324,6 @@ def load_package():
             logtext = "Error in file: " + infile + " - " + str(e) + "\n"
             log(logtext)
 	    pass
-
 
 if __name__ == '__main__':
     import sys
