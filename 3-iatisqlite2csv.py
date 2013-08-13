@@ -1,121 +1,11 @@
 from lxml import etree
 from pprint import pprint
 import csv
-import sqlalchemy
-from sqlalchemy import create_engine
-engine = create_engine('sqlite:///iatidata_new.sqlite', echo=False)
+from lib import db
+from lib.model import *
+from sqlalchemy import *
 
-from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey, UnicodeText, Date, Float
-from sqlalchemy.ext.declarative import declarative_base
-
-from sqlalchemy.orm import sessionmaker
-Session = sessionmaker(bind=engine)
-Session = sessionmaker()
-session = Session()
-
-
-Base = declarative_base()
-
-Base.metadata.bind = engine
-class Activity(Base):
-    __tablename__ = 'activity'
-    id = Column(Integer, primary_key=True)
-    package_id = Column(UnicodeText)
-    source_file = Column(UnicodeText)
-    activity_lang = Column(UnicodeText)
-    default_currency = Column(UnicodeText)
-    hierarchy = Column(UnicodeText)
-    last_updated = Column(UnicodeText)
-    reporting_org = Column(UnicodeText)
-    reporting_org_ref = Column(UnicodeText)
-    reporting_org_type = Column(UnicodeText)
-    funding_org = Column(UnicodeText)
-    funding_org_ref = Column(UnicodeText)
-    funding_org_type = Column(UnicodeText)
-    extending_org = Column(UnicodeText)
-    extending_org_ref = Column(UnicodeText)
-    extending_org_type = Column(UnicodeText)
-    implementing_org = Column(UnicodeText)
-    implementing_org_ref = Column(UnicodeText)
-    implementing_org_type = Column(UnicodeText)
-    recipient_region = Column(UnicodeText)
-    recipient_region_code = Column(UnicodeText)
-    recipient_country = Column(UnicodeText)
-    recipient_country_code = Column(UnicodeText)
-    collaboration_type = Column(UnicodeText)
-    collaboration_type_code = Column(UnicodeText)
-    flow_type = Column(UnicodeText)
-    flow_type_code = Column(UnicodeText)
-    aid_type = Column(UnicodeText)
-    aid_type_code = Column(UnicodeText)
-    finance_type = Column(UnicodeText)
-    finance_type_code = Column(UnicodeText)
-    iati_identifier = Column(UnicodeText, index=True)
-    title = Column(UnicodeText)
-    description = Column(UnicodeText)
-    date_start_actual = Column(UnicodeText)
-    date_start_planned = Column(UnicodeText)
-    date_end_actual = Column(UnicodeText)
-    date_end_planned = Column(UnicodeText)    
-    status_code = Column(UnicodeText)
-    status = Column(UnicodeText)
-    contact_organisation = Column(UnicodeText)
-    contact_telephone = Column(UnicodeText)
-    contact_email = Column(UnicodeText)
-    contact_mailing_address = Column(UnicodeText)
-    tied_status = Column(UnicodeText)
-    tied_status_code = Column(UnicodeText)
-    activity_website = Column(UnicodeText)
-    #countryregion_id = Column(
-
-class Transaction(Base):
-    __tablename__ = 'atransaction'
-    id = Column(Integer, primary_key=True)
-    activity_id = Column(UnicodeText)
-    value = Column(Float)
-    iati_identifier = Column(UnicodeText, index=True)
-    value_date = Column(UnicodeText)
-    value_currency = Column(UnicodeText)
-    transaction_type = Column(UnicodeText)
-    transaction_type_code = Column(UnicodeText)
-    provider_org = Column(UnicodeText)
-    provider_org_ref = Column(UnicodeText)
-    provider_org_type = Column(UnicodeText)
-    receiver_org = Column(UnicodeText)
-    receiver_org_ref = Column(UnicodeText)
-    receiver_org_type = Column(UnicodeText)
-    description = Column(UnicodeText)
-    transaction_date = Column(UnicodeText)
-    transaction_date_iso = Column(UnicodeText)
-    flow_type = Column(UnicodeText)
-    flow_type_code = Column(UnicodeText)
-    aid_type = Column(UnicodeText)
-    aid_type_code = Column(UnicodeText)
-    finance_type = Column(UnicodeText)
-    finance_type_code = Column(UnicodeText)
-    tied_status_code = Column(UnicodeText)
-    disbursement_channel_code = Column(UnicodeText)
-
-# Put everything into sectors table, and link back to activity. This will create a new unique sector per activity, which is OK for then importing back into OS but obviously you would probably want an activities_sectors table to handle a relationship between unique activities and unique sectors.
- 
-class Sector(Base):
-    __tablename__ = 'sector'
-    id = Column(Integer, primary_key=True)   
-    activity_iati_identifier = Column(UnicodeText, index=True)
-    name = Column(UnicodeText)
-    vocabulary = Column(UnicodeText)
-    code = Column(UnicodeText)
-    percentage = Column(Integer)
-
-class RelatedActivity(Base):
-    __tablename__ = 'relatedactivity'
-    id = Column(Integer, primary_key=True)
-    activity_id = Column(UnicodeText, index=True)
-    reltext = Column(UnicodeText)
-    relref = Column(UnicodeText)
-    reltype = Column(UnicodeText)
-
-Base.metadata.create_all()
+db.models.metadata.create_all()
 
 # each transaction:
     # get transaction details
@@ -139,7 +29,7 @@ def run():
     rownumber = 1
     thisnumber = 0
     # get transactions
-    transactions = session.query(Transaction)
+    transactions = db.session.query(Transaction)
     print "Found " + str(transactions.count()) + " transactions."
     print ""
     print "Processing..."
@@ -150,17 +40,17 @@ def run():
         try:
             # get transaction's activity (should only be 1)
             try:
-                activities = session.query(Activity).filter(Activity.iati_identifier==transaction.iati_identifier)
+                activities = db.session.query(Activity).filter(Activity.iati_identifier==transaction.iati_identifier)
             except:
                 pass
             for activity in activities:
                 # get parent activity details (should only be 1)
-                related_activities = session.query(RelatedActivity).filter(RelatedActivity.activity_id==activity.iati_identifier).filter(RelatedActivity.reltype=='1')
+                related_activities = db.session.query(RelatedActivity).filter(RelatedActivity.activity_id==activity.iati_identifier).filter(RelatedActivity.reltype=='1')
                 reladescription = ''
                 relatitle = ''
                 for related_activity in related_activities:
                     # get the related activity's details
-                    related_activity_details = session.query(Activity).filter(Activity.iati_identifier==related_activity.relref)
+                    related_activity_details = db.session.query(Activity).filter(Activity.iati_identifier==related_activity.relref)
                     for related_activity_detail in related_activity_details:
                         relatitle = related_activity_detail.title
                         reladescription = related_activity_detail.description
@@ -220,7 +110,7 @@ def run():
                 else:
                     related_activity_description = ''     
                 # get sectors
-                sectors = session.query(Sector).filter_by(activity_iati_identifier=activity.iati_identifier)
+                sectors = db.session.query(Sector).filter_by(activity_iati_identifier=activity.iati_identifier)
                 # will only write a transaction if it is in a sector!
                 minitransaction_id = 1
                 if (sectors.count()>0):
