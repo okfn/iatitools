@@ -36,6 +36,3 @@ if __name__ == '__main__':
             print "Failed:", e
             print "Couldn't create directory"
     run(dir)
-
-    
-
