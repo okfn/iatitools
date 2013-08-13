@@ -283,9 +283,9 @@ def missingfields(dict_, obj, package):
         del dict_[m]
 
 def log(logtext):
-        inp=file('log-' + str(date.today()) + '.txt', 'a')
-        inp.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + " " + logtext)
-        inp.close()
+    inp=file('log-' + str(date.today()) + '.txt', 'a')
+    inp.write(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + " " + logtext)
+    inp.close()
 
 def load_file(file_name, context=None):
     doc = etree.parse(file_name)
