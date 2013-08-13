@@ -101,43 +101,28 @@ def parse_activity(activity, out, package_filename):
     out['title'] = activity.findtext('title')
     if activity.findtext('description'):
         out['description'] = activity.findtext('description')
-    nodecpy(out, activity.find('recipient-region'),
-            'recipient_region', {'code': 'code'})
-    nodecpy(out, activity.find('recipient-country'),
-            'recipient_country', {'code': 'code'})
-    nodecpy(out, activity.find('collaboration_type'),
-            'collaboration_type', {'code': 'code'})
-    nodecpy(out, activity.find('default-flow-type'),
-            'flow_type', {'code': 'code'})
-    nodecpy(out, activity.find('default-finance-type'),
-            'finance_type', {'code': 'code'})
-    nodecpy(out, activity.find('default-tied-status'),
-            'tied_status', {'code': 'code'})
-    nodecpy(out, activity.find('default-aid-type'),
-            'aid_type', {'code':'code'})
-    nodecpy(out, activity.find('activity-status'),
-            'status', {'code':'code'})
-    nodecpy(out, activity.find('legacy-data'),
-            'legacy', {'name': 'name', 'value': 'value'})
-    
-    nodecpy(out, activity.find('participating-org[@role="Funding"]'),
-            'funding_org', {'ref': 'ref', 'type': 'type'})
-    nodecpy(out, activity.find('participating-org[@role="Extending"]'),
-            'extending_org', {'ref': 'ref', 'type': 'type'})
-    nodecpy(out, activity.find('participating-org[@role="Implementing"]'),
-            'implementing_org', {'ref': 'ref', 'type': 'type'})
-    nodecpy(out, activity.find('participating-org[@role="funding"]'),
-            'funding_org', {'ref': 'ref', 'type': 'type'})
-    nodecpy(out, activity.find('participating-org[@role="extending"]'),
-            'extending_org', {'ref': 'ref', 'type': 'type'})
-    nodecpy(out, activity.find('participating-org[@role="implementing"]'),
-            'implementing_org', {'ref': 'ref', 'type': 'type'})
-    try:
-        if (activity.find('reporting-org').get('ref')=='SE-6'):
-            out['implementing_org'] = activity.find('participating-org[@role="Accountable"]').get('ref')
-            out['implementing_org_ref'] = activity.find('participating-org[@role="Accountable"]').get('ref')
-    except:
-        pass
+
+    fields = [
+      ('recipient-region', 'recipient_region', {'code'}),
+      ('recipient-country', 'recipient_country', {'code'}),
+      ('collaboration-type', 'collaboration_type', {'code'}),
+      ('default-flow-type', 'flow_type', {'code'}),
+      ('default-finance-type', 'finance_type', {'code'}),
+      ('default-aid-type', 'aid_type', {'code'}),
+      ('default-tied-status', 'tied_status', {'code'}),
+      ('activity-status', 'status', {'code'}),
+      ('legacy-data', 'legacy', {'name', 'value'}),
+      ('participating-org[@role="Funding"]', 'funding_org', {'ref', 'type'}),
+      ('participating-org[@role="Extending"]', 'extending_org', {'ref', 'type'}),
+      ('participating-org[@role="Implementing"]', 'implementing_org', {'ref', 'type'})
+            ]
+
+    for field in fields:
+        xpath = field[0]
+        fieldname = field[1]
+        attribs = dict([(k, k) for k in field[2]])
+        nodecpy(out, activity.find(xpath), fieldname, attribs)
+
     for date in activity.findall('activity-date'):
         try:
             # for some (WB) projects, the date is not set even though the tag exists...
