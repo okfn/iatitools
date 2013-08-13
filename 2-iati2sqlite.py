@@ -101,9 +101,8 @@ def parse_activity(activity, out, package_filename):
     out['title'] = activity.findtext('title')
     if activity.findtext('description'):
         out['description'] = activity.findtext('description')
-    if activity.findtext('recipient-region'):
-        out['recipient_region'] = activity.findtext('recipient-region')
-        out['recipient_region_code'] = activity.find('recipient-region').get('code')
+    nodecpy(out, activity.find('recipient-region'),
+            'recipient_region', {'code': 'code'})
     nodecpy(out, activity.find('recipient-country'),
             'recipient_country', {'code': 'code'})
     nodecpy(out, activity.find('collaboration_type'),
