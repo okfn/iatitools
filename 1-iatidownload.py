@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 
 import sys
-import ckan    
+import ckan
+import ckanclient
 import urllib
 from datetime import date
 import os
 
 def run(directory):
     url = 'http://iatiregistry.org/api'
-    import ckanclient
     registry = ckanclient.CkanClient(base_location=url)
-    startnow = False
     for pkg_name in registry.package_register_get():
             pkg = registry.package_entity_get(pkg_name)
             for resource in pkg.get('resources', []):
@@ -19,7 +18,6 @@ def run(directory):
                     save_file(pkg_name, resource.get('url'), dir)
                 except Exception, e:
                     print "Failed:", e
-                    print "Couldn't find directory"
 
 def save_file(pkg_name, url, dir):
 	webFile = urllib.urlopen(url)
@@ -28,8 +26,6 @@ def save_file(pkg_name, url, dir):
 	webFile.close()
 
 if __name__ == '__main__':
-    import sys
-    thetransactions = []
     dir = 'packages/' + str(date.today())
     if not os.path.exists(dir):
         try:
