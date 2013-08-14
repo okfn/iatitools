@@ -15,13 +15,13 @@ def run(directory):
             for resource in pkg.get('resources', []):
                 print resource.get('url')
                 try:
-                    save_file(pkg_name, resource.get('url'), dir)
+                    save_file(pkg_name, resource.get('url'), directory)
                 except Exception, e:
                     print "Failed:", e
 
-def save_file(pkg_name, url, dir):
+def save_file(pkg_name, url, directory):
 	webFile = urllib.urlopen(url)
-	localFile = open(dir + '/' + pkg_name + '.xml', 'w')
+	localFile = open(directory + '/' + pkg_name + '.xml', 'w')
 	localFile.write(webFile.read())
 	webFile.close()
 
