@@ -38,20 +38,19 @@ def parse_tx(tx):
         out['value_date'] = value.get('value-date')
         out['value_currency'] = value.get('currency')
         out['value'] = getValue(value.text)
-    if tx.findtext('description'):
-        out['description'] = tx.findtext('description')
-    nodecpy(out, tx.find('activity-type'),
-            'transaction_type', {'code': 'code'})
-    nodecpy(out, tx.find('transaction-type'),
-            'transaction_type', {'code': 'code'})
-    nodecpy(out, tx.find('flow-type'),
-            'flow_type', {'code': 'code'})
-    nodecpy(out, tx.find('finance-type'),
-            'finance_type', {'code': 'code'})
-    nodecpy(out, tx.find('tied-status'),
-            'tied_status', {'code': 'code'})
-    nodecpy(out, tx.find('aid-type'),
-            'aid_type', {'code':'code'})
+    fields = [
+      ('description', 'description', {}),
+      ('transaction-type', 'transaction_type', {'code'}),
+      ('flow-type', 'flow_type', {'code'}),
+      ('finance-type', 'finance_type', {'code'}),
+      ('tied-status', 'tied_status', {'code'}),
+      ('aid-type', 'aid_type', {'code'}),
+      ('disbursement-channel', 'disbursement_channel', {'code'}),
+      ('provider-org', 'provider_org', {'ref'}),
+      ('receiver-org', 'receiver_org', {'ref'})
+            ]
+
+    getFieldsData(fields, tx, out)
 
     for date in tx.findall('transaction-date'):
         try:
@@ -79,12 +78,6 @@ def parse_tx(tx):
 
     if not (out.has_key('transaction_date_iso')):
         out['transaction_date_iso'] = out['value_date']
-    nodecpy(out, tx.find('disbursement-channel'),
-            'disbursement_channel', {'code': 'code'})
-    nodecpy(out, tx.find('provider-org'),
-            'provider_org', {'ref': 'ref'})
-    nodecpy(out, tx.find('receiver-org'),
-            'receiver_org', {'ref': 'ref'})
     return out
 
 def underscore(value):
@@ -99,6 +92,13 @@ def get_date(out, date, type=None):
         out["date_"+type] = date.get('iso-date')
     if (not date.get('iso-date')) and date.text:
         out["date_"+type] = date.text
+
+def getFieldsData(fields, activity, out):
+    for field in fields:
+        xpath = field[0]
+        fieldname = field[1]
+        attribs = dict([(k, k) for k in field[2]])
+        nodecpy(out, activity.find(xpath), fieldname, attribs)
 
 def parse_activity(activity, out, package_filename):
     out['default_currency'] = activity.get("default-currency")
@@ -127,11 +127,7 @@ def parse_activity(activity, out, package_filename):
       ('contact-info/email', 'contact_email', {})
             ]
 
-    for field in fields:
-        xpath = field[0]
-        fieldname = field[1]
-        attribs = dict([(k, k) for k in field[2]])
-        nodecpy(out, activity.find(xpath), fieldname, attribs)
+    getFieldsData(fields, activity, out)
 
     for date in activity.findall('activity-date'):
         get_date(out,date)
