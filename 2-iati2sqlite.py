@@ -52,29 +52,8 @@ def parse_tx(tx):
 
     getFieldsData(fields, tx, out)
 
-    for date in tx.findall('transaction-date'):
-        try:
-            # for some (WB) projects, the date is not set even though the tag exists...
-            if (date is not None):
-                temp = {}
-                nodecpy(temp, date,
-                    'date',
-                    {'iso-date': 'iso-date'})
-
-                date_iso_date = date.get('iso-date')
-
-                if (date_iso_date):
-                    d = (date_iso_date)
-                    out['transaction_date_iso'] = d
-                elif (temp.has_key('date')):
-                    d = (temp['date'])
-                    out['transaction_date_iso'] = d
-
-            else:
-                print "No date!!"
-           
-        except ValueError:
-            pass
+    date = tx.find('transaction-date')
+    get_date(out, date, 'date_iso', 'transaction_')
 
     if not (out.has_key('transaction_date_iso')):
         out['transaction_date_iso'] = out['value_date']
@@ -83,15 +62,17 @@ def parse_tx(tx):
 def underscore(value):
     return re.sub("-","_",value)
 
-def get_date(out, date, type=None):
+def get_date(out, date, type=None, prefix="date_"):
+    if date is None:
+        return False
     if not type:
         type = underscore(date.get('type'))
     if not type:
         return
     if date is not None:
-        out["date_"+type] = date.get('iso-date')
+        out[prefix+type] = date.get('iso-date')
     if (not date.get('iso-date')) and date.text:
-        out["date_"+type] = date.text
+        out[prefix+type] = date.text
 
 def getFieldsData(fields, activity, out):
     for field in fields:
