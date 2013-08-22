@@ -77,6 +77,7 @@ class Transaction(db.models):
     aid_type_code = Column(UnicodeText)
     finance_type = Column(UnicodeText)
     finance_type_code = Column(UnicodeText)
+    tied_status = Column(UnicodeText)
     tied_status_code = Column(UnicodeText)
     disbursement_channel_code = Column(UnicodeText)
 
