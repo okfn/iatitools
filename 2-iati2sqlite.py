@@ -81,6 +81,23 @@ def getFieldsData(fields, activity, out):
         attribs = dict([(k, k) for k in field[2]])
         nodecpy(out, activity.find(xpath), fieldname, attribs)
 
+def getSector(sector, iati_identifier):
+    temp = {}
+    nodecpy(temp, sector,
+        'sector',
+        {'vocabulary': 'vocabulary', 
+         'percentage': 'percentage', 
+         'code': 'code'})
+    
+    sector_data = {
+        'activity_iati_identifier': iati_identifier,
+        'name': temp.get('sector', ''),
+        'code': temp.get('sector_code', ''),
+        'percentage': temp.get('percentage', '100'),
+        'vocabulary': temp.get('vocabulary', 'DAC')
+    }
+    return sector_data
+
 def parse_activity(activity, out, package_filename):
     out['default_currency'] = activity.get("default-currency")
 
@@ -113,59 +130,13 @@ def parse_activity(activity, out, package_filename):
     for date in activity.findall('activity-date'):
         get_date(out,date)
     
+    iati_identifier = activity.findtext('iati-identifier')
+
     for sector in activity.findall('sector'):
-        try:
-            temp = {}
-            nodecpy(temp, sector,
-                'sector',
-                {'vocabulary': 'vocabulary', 'percentage': 'percentage', 'code': 'code'})
-            try: 
-                vocab = temp['sector_vocabulary'] if temp['sector_vocabulary'] else 'DAC'
-            except:
-                try:
-                    vocab = sector.get('vocabulary')
-                except:
-                    vocab = 'DAC'
-            activityiatiid = activity.findtext('iati-identifier')
-            try:
-                getpercentage = temp['sector_percentage']
-                percentage = 0
-                # if getpercentage doesn't exist, or it's blank, or it's None, do this:
-                if (not(getpercentage) or (getpercentage == '') or (getpercentage is None)):
-                    percentage = 100
-                else:
-                # if getpercentage exists, it's not blank, and it's not none
-                    percentage = getpercentage            
-            except:
-                try:
-                    percentage = sector.get('percentage')
-                except:
-                    percentage = 100
-            if (percentage == None):
-                percentage = 100
-            try:
-                temp['sector']
-            except:
-                temp['sector'] = ''
-            try:
-                temp['sector_code']
-            except:
-                try:
-                    temp['sector_code'] = sector.get('code')
-                except:
-                    temp['sector_code'] = ''
-            tsector = {
-                'activity_iati_identifier': activityiatiid,
-                'name': temp['sector'],
-                'code': temp['sector_code'],
-                'percentage': int(percentage),
-                'vocabulary': vocab
-            }
-            missingfields(sector, Sector, package_filename)
-            s = Sector(**tsector)
-            db.session.add(s)
-        except ValueError:
-            pass
+        sector_data = getSector(sector, iati_identifier)
+        missingfields(sector, Sector, package_filename)
+        s = Sector(**sector_data)
+        db.session.add(s)
             
     for ra in activity.findall('related-activity'):
         try:
