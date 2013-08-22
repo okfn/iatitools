@@ -25,8 +25,8 @@ def run():
             counter = 0
          else:
             counter = counter+1
-         line["currency"] = (string.upper(line["currency"]))
-         currency=line["currency"]
+         line["value_currency"] = (string.upper(line["value_currency"]))
+         currency=line["value_currency"]
          amount_USD = 0
          amount_original = float(line["item_value"])
 
