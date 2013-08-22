@@ -1,425 +1,628 @@
 {
-  "sector": {
-    "description": null,
-    "taxonomy": "iati-sector",
-    "label": "Sector",
-    "fields": [
-      {
-        "column": "item_sector",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "item_sector_code",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "sector"
-  },
-  "recipient_location": {
-    "description": "Recipient country if it exists, otherwise recipient region",
-    "taxonomy": "iati-location",
-    "label": "Recipient Location",
-    "facet": true,
-    "fields": [
-      {
-        "column": "activity_recipient_location",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "activity_recipient_location_code",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "recipient_location"
-  },
-  "original_currency": {
-    "description": null,
-    "taxonomy": "iati-currency",
-    "label": "Original currency",
-    "facet": true,
-    "fields": [
-      {
-        "column": "currency",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "currency",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "original_currency"
-  },
-  "source_file": {
-    "description": "URL of the registry entry",
-    "datatype": "string",
-    "label": "Source File",
-    "column": "source_file",
-    "type": "value",
-    "dimension": "source_file"
-  },
-  "rowid": {
-    "description": "Transaction identifier (constructed)",
-    "datatype": "string",
-    "label": "Transaction ID",
-    "column": "rowid",
-    "key": true,
-    "type": "value",
-    "dimension": "rowid"
-  },
-  "tied_status": {
-    "description": null,
-    "taxonomy": "iati-tied-status",
-    "label": "Tied aid status",
-    "facet": true,
-    "fields": [
-      {
-        "column": "tied_status",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "tied_status_code",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "tied_status"
-  },
-  "actual_start_date": {
-    "default": null,
-    "description": null,
-    "datatype": "string",
-    "label": "Actual Start Date",
-    "column": "date_start_actual",
-    "type": "value",
-    "dimension": "actual_start_date"
-  },
-  "from": {
-    "description": null,
-    "fields": [
-      {
-        "column": "activity_funding_org",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "activity_funding_org",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      },
-      {
-        "column": "activity_funding_org_type",
-        "datatype": "string",
-        "name": "type"
-      },
-      {
-        "column": "activity_funding_org_ref",
-        "datatype": "string",
-        "name": "ref"
-      }
-    ],
-    "label": "Funding Organisation",
-    "facet": true,
-    "type": "entity",
-    "dimension": "from"
-  },
-  "title": {
-    "description": null,
-    "datatype": "string",
-    "label": "Title",
-    "column": "title",
-    "type": "value",
-    "dimension": "title"
-  },
-  "actual_end_date": {
-    "default": null,
-    "description": null,
-    "datatype": "string",
-    "label": "Actual End Date",
-    "column": "date_end_actual",
-    "type": "value",
-    "dimension": "actual_end_date"
-  },
-  "to": {
-    "description": null,
-    "default": "unknown",
-    "fields": [
-      {
-        "column": "activity_implementing_org",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      },
-      {
-        "column": "activity_implementing_org",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "activity_implementing_org_ref",
-        "datatype": "string",
-        "name": "ref"
-      },
-      {
-        "column": "activity_implementing_org_type",
-        "datatype": "string",
-        "name": "type"
-      }
-    ],
-    "label": "Implementing Organisation",
-    "facet": true,
-    "type": "entity",
-    "dimension": "to"
-  },
-  "original_amount": {
-    "description": "Original amount, in the original currency",
-    "datatype": "float",
-    "label": "Original amount",
-    "column": "item_value",
-    "type": "value",
-    "dimension": "original_amount"
-  },
-  "status": {
-    "description": null,
-    "taxonomy": "iati-status",
-    "label": "Activity status",
-    "facet": true,
-    "fields": [
-      {
-        "column": "status",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "status_code",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "status"
-  },
-  "description": {
-    "description": null,
-    "datatype": "string",
-    "label": "Description",
-    "column": "description",
-    "type": "value",
-    "dimension": "description"
-  },
-  "planned_start_date": {
-    "default": null,
-    "description": null,
-    "datatype": "string",
-    "label": "Planned Start Date",
-    "column": "date_start_planned",
-    "type": "value",
-    "dimension": "planned_start_date"
-  },
-  "aid_type": {
-    "description": null,
-    "taxonomy": "iati-aid-type",
-    "label": "Aid Type",
-    "facet": true,
-    "fields": [
-      {
-        "column": "aid_type",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "aid_type_code",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "aid_type"
-  },
-  "planned_end_date": {
-    "default": null,
-    "description": null,
-    "datatype": "string",
-    "label": "Planned End Date",
-    "column": "date_end_planned",
-    "type": "value",
-    "dimension": "planned_end_date"
-  },
-  "recipient_region": {
-    "description": null,
-    "taxonomy": "iati-region",
-    "label": "Recipient Region",
-    "facet": true,
-    "fields": [
-      {
-        "column": "activity_recipient_region",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "activity_recipient_region_code",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "recipient_region"
-  },
-  "finance_type": {
-    "description": null,
-    "default": null,
-    "taxonomy": "iati-finance-type",
-    "label": "Finance Type",
-    "fields": [
-      {
-        "column": "finance_type",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "finance_type_code",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "finance_type"
-  },
-  "recipient_country": {
-    "description": null,
-    "taxonomy": "iati-country",
-    "label": "Recipient Country",
-    "facet": true,
-    "fields": [
-      {
-        "column": "activity_recipient_country",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "activity_recipient_country_code",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "recipient_country"
-  },
-  "transaction_type": {
-    "description": null,
-    "taxonomy": "iati-tx-type",
-    "label": "Transaction Type",
-    "fields": [
-      {
-        "column": "transaction_type",
-        "datatype": "string",
-        "name": "label"
-      },
-      {
-        "column": "transaction_type_code",
-        "datatype": "id",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "transaction_type"
-  },
-  "amount": {
-    "description": null,
-    "datatype": "float",
-    "label": "Amount",
-    "column": "amount_USD",
-    "type": "value",
-    "dimension": "amount"
-  },
-  "flow_type": {
-    "description": null,
-    "taxonomy": "iati-flow-type",
-    "label": "Flow Type",
-    "fields": [
-      {
-        "column": "flow_type",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "flow_type_code",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "flow_type"
-  },
-  "time": {
-    "description": null,
-    "datatype": "date",
-    "label": "Year",
-    "column": "transaction_date_iso",
-    "type": "value",
-    "dimension": "time"
-  },
-  "activity_website": {
-    "description": "URL of the activity",
-    "datatype": "string",
-    "label": "Activity website",
-    "column": "activity_website",
-    "type": "value",
-    "dimension": "activity_website"
-  },
-  "identifier": {
-    "description": null,
-    "taxonomy": "iati-identifier",
-    "label": "IATI Identifier",
-    "facet": true,
-    "fields": [
-      {
-        "column": "iati_identifier",
-        "datatype": "string",
-        "default_value": "Unknown",
-        "name": "label"
-      },
-      {
-        "column": "iati_identifier",
-        "datatype": "id",
-        "default_value": "unknown",
-        "name": "name"
-      }
-    ],
-    "type": "classifier",
-    "dimension": "identifier"
-  }
+  "dataset": {
+    "languages": [], 
+    "currency": "USD", 
+    "name": "iati", 
+    "category": "spending", 
+    "default_time": "2013",
+    "territories": [
+      "ZW"
+    ], 
+    "description": "Consolidated IATI transactions as of 5.12.2011\r\n\r\nBugs noticed so far:\r\n\r\n* \"Unknown\" recipient location is incorrectly marked as \"South Sudan\"\r\n\r\n* Recipient countries are listed twice, as Spain has used ISO3 rather than ISO2 country codes.\r\n\r\n* Sweden is listed as \"Ministry of Foreign Affairs\" (this is how they have listed themselves as the Funding Organisation in the data)\r\n\r\n* Sweden's implementing organisations have been lost as they placed them in the accountable organisation field.", 
+    "html_url": "http://openspending.org/iati", 
+    "schema_version": "2011-12-07", 
+    "label": "International Aid Transparency Initiative (BETA)"
+  }, 
+  "mapping": {
+    "sector": {
+      "description": null, 
+      "taxonomy": "iati-sector", 
+      "label": "Sector", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "item_sector_code", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "item_sector", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "sector"
+    }, 
+    "source_file": {
+      "default_value": "Unknown", 
+      "description": "Source package for data", 
+      "column": "source_file", 
+      "label": "Source File", 
+      "facet": true, 
+      "datatype": "string", 
+      "type": "attribute", 
+      "dimension": "source_file"
+    }, 
+    "rowid": {
+      "description": "Transaction identifier (constructed)", 
+      "datatype": "string", 
+      "label": "Transaction ID", 
+      "column": "rowid", 
+      "key": true, 
+      "type": "attribute", 
+      "dimension": "rowid"
+    }, 
+    "tied_status": {
+      "description": null, 
+      "taxonomy": "iati-tied-status", 
+      "label": "Tied aid status", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "tied_status_code", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "tied_status", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "tied_status"
+    }, 
+    "actual_start_date": {
+      "default_value": "", 
+      "description": null, 
+      "datatype": "string", 
+      "label": "Actual Start Date", 
+      "column": "date_start_actual", 
+      "type": "attribute", 
+      "dimension": "actual_start_date"
+    }, 
+    "from": {
+      "description": null, 
+      "label": "Funding Organisation", 
+      "facet": true, 
+      "attributes": {
+        "ref": {
+          "column": "activity_funding_org_ref", 
+          "datatype": "string", 
+          "default_value": "unknown"
+        }, 
+        "type": {
+          "column": "activity_funding_org_type", 
+          "datatype": "string", 
+          "default_value": "unknown"
+        }, 
+        "name": {
+          "column": "activity_funding_org", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "activity_funding_org", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "from"
+    }, 
+    "title": {
+      "default_value": "", 
+      "description": null, 
+      "datatype": "string", 
+      "label": "Title", 
+      "column": "title", 
+      "type": "attribute", 
+      "dimension": "title"
+    }, 
+    "actual_end_date": {
+      "default_value": "", 
+      "description": null, 
+      "datatype": "string", 
+      "label": "Actual End Date", 
+      "column": "date_end_actual", 
+      "type": "attribute", 
+      "dimension": "actual_end_date"
+    }, 
+    "to": {
+      "description": null, 
+      "default": "unknown", 
+      "label": "Implementing Organisation", 
+      "facet": true, 
+      "attributes": {
+        "type": {
+          "column": "activity_implementing_org_type", 
+          "datatype": "string", 
+          "default_value": "unknown"
+        }, 
+        "ref": {
+          "column": "activity_implementing_org_ref", 
+          "datatype": "string", 
+          "default_value": "unknown"
+        }, 
+        "name": {
+          "column": "activity_implementing_org", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "activity_implementing_org", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "to"
+    }, 
+    "original_amount": {
+      "description": "Original amount, in the original currency", 
+      "datatype": "float", 
+      "label": "Original amount", 
+      "column": "item_value", 
+      "type": "attribute", 
+      "dimension": "original_amount"
+    }, 
+    "status": {
+      "description": null, 
+      "taxonomy": "iati-status", 
+      "label": "Activity status", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "status_code", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "status", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "status"
+    }, 
+    "description": {
+      "default_value": "", 
+      "description": null, 
+      "datatype": "string", 
+      "label": "Description", 
+      "column": "description", 
+      "type": "attribute", 
+      "dimension": "description"
+    }, 
+    "original_currency": {
+      "description": null, 
+      "taxonomy": "iati-currency", 
+      "label": "Original currency", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "value_currency", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "value_currency", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "original_currency"
+    }, 
+    "extending_org": {
+      "description": null, 
+      "label": "Extending Organisation", 
+      "facet": true, 
+      "attributes": {
+        "ref": {
+          "column": "activity_extending_org_ref", 
+          "datatype": "string", 
+          "default_value": "unknown"
+        }, 
+        "type": {
+          "column": "activity_extending_org_type", 
+          "datatype": "string", 
+          "default_value": "unknown"
+        }, 
+        "name": {
+          "column": "activity_extending_org", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "activity_extending_org", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "extending_org"
+    }, 
+    "planned_start_date": {
+      "default_value": "", 
+      "description": null, 
+      "datatype": "string", 
+      "label": "Planned Start Date", 
+      "column": "date_start_planned", 
+      "type": "attribute", 
+      "dimension": "planned_start_date"
+    }, 
+    "aid_type": {
+      "description": null, 
+      "taxonomy": "iati-aid-type", 
+      "label": "Aid Type", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "aid_type_code", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "aid_type", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "aid_type"
+    }, 
+    "planned_end_date": {
+      "default_value": "", 
+      "description": null, 
+      "datatype": "string", 
+      "label": "Planned End Date", 
+      "column": "date_end_planned", 
+      "type": "attribute", 
+      "dimension": "planned_end_date"
+    }, 
+    "recipient_region": {
+      "description": null, 
+      "taxonomy": "iati-region", 
+      "label": "Recipient Region", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "activity_recipient_region_code", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "activity_recipient_region", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "recipient_region"
+    }, 
+    "finance_type": {
+      "description": null, 
+      "default": null, 
+      "taxonomy": "iati-finance-type", 
+      "label": "Finance Type", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "finance_type_code", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "finance_type", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "finance_type"
+    }, 
+    "recipient_country": {
+      "description": null, 
+      "taxonomy": "iati-country", 
+      "label": "Recipient Country", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "activity_recipient_country_code", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "activity_recipient_country", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "recipient_country"
+    }, 
+    "transaction_type": {
+      "description": null, 
+      "taxonomy": "iati-tx-type", 
+      "label": "Transaction Type", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "transaction_type_code", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "transaction_type", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "transaction_type"
+    }, 
+    "amount": {
+      "description": null, 
+      "datatype": "float", 
+      "label": "Amount", 
+      "column": "amount_USD", 
+      "type": "measure", 
+      "dimension": "amount"
+    }, 
+    "flow_type": {
+      "description": null, 
+      "taxonomy": "iati-flow-type", 
+      "label": "Flow Type", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "flow_type_code", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "flow_type", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "flow_type"
+    }, 
+    "time": {
+      "description": null, 
+      "format": null, 
+      "datatype": "date", 
+      "label": "Year", 
+      "column": "transaction_date_iso", 
+      "type": "date", 
+      "dimension": "time"
+    }, 
+    "activity_website": {
+      "default_value": "", 
+      "description": "URL of the activity", 
+      "datatype": "string", 
+      "label": "Activity website", 
+      "column": "activity_website", 
+      "type": "attribute", 
+      "dimension": "activity_website"
+    }, 
+    "identifier": {
+      "description": null, 
+      "taxonomy": "iati-identifier", 
+      "label": "IATI Identifier", 
+      "facet": true, 
+      "attributes": {
+        "name": {
+          "column": "iati_identifier", 
+          "datatype": "id", 
+          "default_value": "unknown"
+        }, 
+        "label": {
+          "column": "iati_identifier", 
+          "datatype": "string", 
+          "default_value": "Unknown"
+        }
+      }, 
+      "type": "compound", 
+      "dimension": "identifier"
+    }
+  }, 
+  "views": [
+    {
+      "name": "default", 
+      "label": "Recipient Country", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "recipient_country", 
+      "entity": "dataset", 
+      "dimension": "dataset"
+    }, 
+    {
+      "name": "recipient_region", 
+      "label": "Recipient Region", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "recipient_region", 
+      "entity": "dataset", 
+      "dimension": "dataset"
+    }, 
+    {
+      "name": "default", 
+      "label": "Sector", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "sector", 
+      "entity": "dimension", 
+      "dimension": "recipient_country"
+    }, 
+    {
+      "name": "funder", 
+      "label": "Funding organisation", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "from", 
+      "entity": "dimension", 
+      "dimension": "recipient_country"
+    }, 
+    {
+      "name": "funder", 
+      "label": "Funding organisation", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "from", 
+      "entity": "dimension", 
+      "dimension": "sector"
+    }, 
+    {
+      "name": "aid_type", 
+      "label": "Aid type", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "aid_type", 
+      "entity": "dimension", 
+      "dimension": "recipient_country"
+    }, 
+    {
+      "name": "default", 
+      "label": "Flow type", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "flow_type", 
+      "entity": "dimension", 
+      "dimension": "sector"
+    }, 
+    {
+      "name": "flow_type", 
+      "label": "Flow type", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "flow_type", 
+      "entity": "dimension", 
+      "dimension": "recipient_country"
+    }, 
+    {
+      "name": "finance_type", 
+      "label": "Finance type", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "finance_type", 
+      "entity": "dimension", 
+      "dimension": "recipient_country"
+    }, 
+    {
+      "name": "sector", 
+      "label": "Sector", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "sector", 
+      "entity": "dataset", 
+      "dimension": "dataset"
+    }, 
+    {
+      "name": "funder", 
+      "label": "Funding organisation", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "from", 
+      "entity": "dataset", 
+      "dimension": "dataset"
+    }, 
+    {
+      "name": "default", 
+      "label": "Recipient Country", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "recipient_country", 
+      "entity": "dimension", 
+      "dimension": "from"
+    }, 
+    {
+      "name": "recipient_region", 
+      "label": "Recipient Region", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "recipient_region", 
+      "entity": "dimension", 
+      "dimension": "from"
+    }, 
+    {
+      "name": "sector", 
+      "label": "Sector", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "sector", 
+      "entity": "dimension", 
+      "dimension": "from"
+    }, 
+    {
+      "name": "flow_type", 
+      "label": "Flow type", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "flow_type", 
+      "entity": "dimension", 
+      "dimension": "from"
+    }, 
+    {
+      "name": "finance_type", 
+      "label": "Finance type", 
+      "cuts": {
+        "transaction_type": "d"
+      }, 
+      "drilldown": "finance_type", 
+      "entity": "dimension", 
+      "dimension": "from"
+    }, 
+    {
+      "name": "transaction_type", 
+      "label": "Transaction type", 
+      "cuts": {}, 
+      "drilldown": "transaction_type", 
+      "entity": "dataset", 
+      "dimension": "dataset"
+    }, 
+    {
+      "name": "transaction_type", 
+      "label": "Transaction type", 
+      "cuts": {}, 
+      "drilldown": "transaction_type", 
+      "entity": "dimension", 
+      "dimension": "from"
+    }, 
+    {
+      "name": "default", 
+      "label": "Recipient Country", 
+      "cuts": {}, 
+      "drilldown": "recipient_country", 
+      "entity": "dimension", 
+      "dimension": "transaction_type"
+    }, 
+    {
+      "name": "from", 
+      "label": "Funding organisation", 
+      "cuts": {}, 
+      "drilldown": "from", 
+      "entity": "dimension", 
+      "dimension": "transaction_type"
+    }
+  ]
 }
